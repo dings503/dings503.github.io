@@ -82,28 +82,16 @@
 
 
 
-<meta name="description" content="hexo搭建Github静态博客安装环境1.安装Git2.安装node.js下载并默认安装即可
-3.配置Github新建仓库并配置好SSH-Key
-4.安装Hexo4.1安装打开Git Bash，输入以下命令：
-1234$ npm install -g hexo``` 由于墙的原因，这一步一般都不会成功，所以使用npm国内镜像，执行以下命令：
-$ npm config set registry h">
+<meta name="description" content="hexo搭建Github静态博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="blog1">
 <meta property="og:url" content="http://yoursite.com/2016/04/12/Hexo搭建Github静态博客/index.html">
 <meta property="og:site_name" content="dings503's blog">
-<meta property="og:description" content="hexo搭建Github静态博客安装环境1.安装Git2.安装node.js下载并默认安装即可
-3.配置Github新建仓库并配置好SSH-Key
-4.安装Hexo4.1安装打开Git Bash，输入以下命令：
-1234$ npm install -g hexo``` 由于墙的原因，这一步一般都不会成功，所以使用npm国内镜像，执行以下命令：
-$ npm config set registry h">
-<meta property="og:updated_time" content="2016-04-12T02:08:22.436Z">
+<meta property="og:description" content="hexo搭建Github静态博客">
+<meta property="og:updated_time" content="2016-04-12T02:13:59.299Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="blog1">
-<meta name="twitter:description" content="hexo搭建Github静态博客安装环境1.安装Git2.安装node.js下载并默认安装即可
-3.配置Github新建仓库并配置好SSH-Key
-4.安装Hexo4.1安装打开Git Bash，输入以下命令：
-1234$ npm install -g hexo``` 由于墙的原因，这一步一般都不会成功，所以使用npm国内镜像，执行以下命令：
-$ npm config set registry h">
+<meta name="twitter:description" content="hexo搭建Github静态博客">
 
 
 
@@ -332,19 +320,28 @@ $ npm config set registry h">
       
 
       
-        <h1 id="hexo搭建Github静态博客"><a href="#hexo搭建Github静态博客" class="headerlink" title="hexo搭建Github静态博客"></a>hexo搭建Github静态博客</h1><h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><h3 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1.安装Git"></a>1.安装Git</h3><h3 id="2-安装node-js"><a href="#2-安装node-js" class="headerlink" title="2.安装node.js"></a>2.安装node.js</h3><p><a href="https://nodejs.org/en/" target="_blank" rel="external">下载</a>并默认安装即可</p>
+        <h1 id="hexo搭建Github静态博客"><a href="#hexo搭建Github静态博客" class="headerlink" title="hexo搭建Github静态博客"></a>hexo搭建Github静态博客</h1><a id="more"></a>
+<h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><h3 id="1-安装Git"><a href="#1-安装Git" class="headerlink" title="1.安装Git"></a>1.安装Git</h3><h3 id="2-安装node-js"><a href="#2-安装node-js" class="headerlink" title="2.安装node.js"></a>2.安装node.js</h3><p><a href="https://nodejs.org/en/" target="_blank" rel="external">下载</a>并默认安装即可</p>
 <h3 id="3-配置Github"><a href="#3-配置Github" class="headerlink" title="3.配置Github"></a>3.配置Github</h3><p>新建仓库并配置好SSH-Key</p>
 <h3 id="4-安装Hexo"><a href="#4-安装Hexo" class="headerlink" title="4.安装Hexo"></a>4.安装Hexo</h3><h4 id="4-1安装"><a href="#4-1安装" class="headerlink" title="4.1安装"></a>4.1安装</h4><p>打开Git Bash，输入以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">由于墙的原因，这一步一般都不会成功，所以使用npm国内镜像，执行以下命令：</span><br></pre></td></tr></table></figure>
-<p>$ npm config set registry <a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">然后再</span><br></pre></td></tr></table></figure></p>
-<p>$ npm install -g hexo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 4.2启动</span><br><span class="line"></span><br><span class="line">##### 4.2.1新建Hexo文件夹</span><br><span class="line"></span><br><span class="line">在电脑中新建一个Hexo文件夹，如 D：\Hexo ,然后在此文件夹内打开Git Bash,执行一下命令：</span><br></pre></td></tr></table></figure></p>
-<p>$ hexo init<br>$ npm install<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">##### 4.2.2新建博客</span><br><span class="line"></span><br><span class="line">在Git Bash里执行以下命令：</span><br></pre></td></tr></table></figure></p>
-<p>$ hexo new post “My Blog”<br>[info] File created at d:\Hexo\source_posts\My-Blog.md<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">就可以对d:\Hexo\source\_posts\My-Blog.md进行编写了</span><br><span class="line"></span><br><span class="line">##### 4.2.3启动服务</span><br><span class="line"></span><br><span class="line">在Git Bash里执行以下命令：</span><br></pre></td></tr></table></figure></p>
-<p>$ hexo generate<br>$ hexo Server<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">就可以在浏览器里访问博客了，地址是：`http://localhost:4000`</span><br><span class="line"></span><br><span class="line">#### 4.3配置Hexo的_config.yml文件</span><br></pre></td></tr></table></figure></p>
-<h1 id="Site"><a href="#Site" class="headerlink" title="Site"></a>Site</h1><p>title: 博客的标题<br>subtitle: 博客的说明文字<br>description: 博客的说明文字<br>author: 博客的作者<br>language: 语言，一般中文是zh-Hans<br>timezone:</p>
-<p>deploy:<br>  type: git   #新版本是Git，旧版本是GitHub，在部署到GitHub上可能会有错误<br>  repository: git@github.com:user-name/user-name.github.io.git<br>  branch: master<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">### 5.将Hexo部署到Github上</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">在Git Bash中执行以下命令：</span><br></pre></td></tr></table></figure></p>
-<p>$ hexo generate<br>$ hexo deploy<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">可能会出现error deployer not found:github 的错误，解决办法是：</span><br></pre></td></tr></table></figure></p>
-<p>npm install hexo-deployer-git –save<br>```</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure>
+<p>由于墙的原因，这一步一般都不会成功，所以使用npm国内镜像，执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<p>然后再</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure>
+<h4 id="4-2启动"><a href="#4-2启动" class="headerlink" title="4.2启动"></a>4.2启动</h4><h5 id="4-2-1新建Hexo文件夹"><a href="#4-2-1新建Hexo文件夹" class="headerlink" title="4.2.1新建Hexo文件夹"></a>4.2.1新建Hexo文件夹</h5><p>在电脑中新建一个Hexo文件夹，如 D：\Hexo ,然后在此文件夹内打开Git Bash,执行一下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<h5 id="4-2-2新建博客"><a href="#4-2-2新建博客" class="headerlink" title="4.2.2新建博客"></a>4.2.2新建博客</h5><p>在Git Bash里执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new post &quot;My Blog&quot;</span><br><span class="line">[info] File created at d:\Hexo\source\_posts\My-Blog.md</span><br></pre></td></tr></table></figure>
+<p>就可以对d:\Hexo\source_posts\My-Blog.md进行编写了</p>
+<h5 id="4-2-3启动服务"><a href="#4-2-3启动服务" class="headerlink" title="4.2.3启动服务"></a>4.2.3启动服务</h5><p>在Git Bash里执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br><span class="line">$ hexo Server</span><br></pre></td></tr></table></figure>
+<p>就可以在浏览器里访问博客了，地址是：<code>http://localhost:4000</code></p>
+<h4 id="4-3配置Hexo的-config-yml文件"><a href="#4-3配置Hexo的-config-yml文件" class="headerlink" title="4.3配置Hexo的_config.yml文件"></a>4.3配置Hexo的_config.yml文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 博客的标题</span><br><span class="line">subtitle: 博客的说明文字</span><br><span class="line">description: 博客的说明文字</span><br><span class="line">author: 博客的作者</span><br><span class="line">language: 语言，一般中文是zh-Hans</span><br><span class="line">timezone:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">deploy:</span><br><span class="line">  type: git   #新版本是Git，旧版本是GitHub，在部署到GitHub上可能会有错误</span><br><span class="line">  repository: git@github.com:user-name/user-name.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<h3 id="5-将Hexo部署到Github上"><a href="#5-将Hexo部署到Github上" class="headerlink" title="5.将Hexo部署到Github上"></a>5.将Hexo部署到Github上</h3><p>在Git Bash中执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>可能会出现error deployer not found:github 的错误，解决办法是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 <p>然后执行以上命令即可</p>
 
       
@@ -377,8 +374,8 @@ $ npm config set registry h">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/11/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2016/04/12/Hexo搭建GitHub静态博客-0/" rel="next" title="blog1">
+                <i class="fa fa-chevron-left"></i> blog1
               </a>
             
           </div>
@@ -474,7 +471,7 @@ $ npm config set registry h">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -562,7 +559,7 @@ $ npm config set registry h">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo搭建Github静态博客"><span class="nav-number">1.</span> <span class="nav-text">hexo搭建Github静态博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装环境"><span class="nav-number">1.1.</span> <span class="nav-text">安装环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装Git"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.安装Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装node-js"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.安装node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-配置Github"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.配置Github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-安装Hexo"><span class="nav-number">1.1.4.</span> <span class="nav-text">4.安装Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1安装"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">4.1安装</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Site"><span class="nav-number">2.</span> <span class="nav-text">Site</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo搭建Github静态博客"><span class="nav-number">1.</span> <span class="nav-text">hexo搭建Github静态博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装环境"><span class="nav-number">1.1.</span> <span class="nav-text">安装环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-安装Git"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.安装Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装node-js"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.安装node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-配置Github"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.配置Github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-安装Hexo"><span class="nav-number">1.1.4.</span> <span class="nav-text">4.安装Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1安装"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">4.1安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2启动"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">4.2启动</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-1新建Hexo文件夹"><span class="nav-number">1.1.4.2.1.</span> <span class="nav-text">4.2.1新建Hexo文件夹</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-2新建博客"><span class="nav-number">1.1.4.2.2.</span> <span class="nav-text">4.2.2新建博客</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-2-3启动服务"><span class="nav-number">1.1.4.2.3.</span> <span class="nav-text">4.2.3启动服务</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3配置Hexo的-config-yml文件"><span class="nav-number">1.1.4.3.</span> <span class="nav-text">4.3配置Hexo的_config.yml文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-将Hexo部署到Github上"><span class="nav-number">1.1.5.</span> <span class="nav-text">5.将Hexo部署到Github上</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
