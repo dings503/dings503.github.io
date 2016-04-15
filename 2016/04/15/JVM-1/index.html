@@ -82,20 +82,17 @@
 
 
 
-<meta name="description" content="#深入理解Java虚拟机 JVM高级特性与最佳实践
-世界上并没有完美的程序，但我们并不因此而沮丧，因为写程序本来就是一个不断追求完美的过程。">
+<meta name="description" content="深入理解Java虚拟机 JVM高级特性与最佳实践世界上并没有完美的程序，但我们并不因此而沮丧，因为写程序本来就是一个不断追求完美的过程。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解Java虚拟机 JVM高级特性与最佳实践">
 <meta property="og:url" content="http://yoursite.com/2016/04/15/JVM-1/index.html">
 <meta property="og:site_name" content="dings503's blog">
-<meta property="og:description" content="#深入理解Java虚拟机 JVM高级特性与最佳实践
-世界上并没有完美的程序，但我们并不因此而沮丧，因为写程序本来就是一个不断追求完美的过程。">
+<meta property="og:description" content="深入理解Java虚拟机 JVM高级特性与最佳实践世界上并没有完美的程序，但我们并不因此而沮丧，因为写程序本来就是一个不断追求完美的过程。">
 <meta property="og:image" content="http://yoursite.com/../img/Java虚拟机运行时数据区.png">
-<meta property="og:updated_time" content="2016-04-15T14:12:47.338Z">
+<meta property="og:updated_time" content="2016-04-15T14:17:54.576Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解Java虚拟机 JVM高级特性与最佳实践">
-<meta name="twitter:description" content="#深入理解Java虚拟机 JVM高级特性与最佳实践
-世界上并没有完美的程序，但我们并不因此而沮丧，因为写程序本来就是一个不断追求完美的过程。">
+<meta name="twitter:description" content="深入理解Java虚拟机 JVM高级特性与最佳实践世界上并没有完美的程序，但我们并不因此而沮丧，因为写程序本来就是一个不断追求完美的过程。">
 <meta name="twitter:image" content="http://yoursite.com/../img/Java虚拟机运行时数据区.png">
 
 
@@ -306,8 +303,7 @@
       
 
       
-        <p>#深入理解Java虚拟机 JVM高级特性与最佳实践</p>
-<p>世界上并没有完美的程序，但我们并不因此而沮丧，因为写程序本来就是一个不断追求完美的过程。</p>
+        <h1 id="深入理解Java虚拟机-JVM高级特性与最佳实践"><a href="#深入理解Java虚拟机-JVM高级特性与最佳实践" class="headerlink" title="深入理解Java虚拟机 JVM高级特性与最佳实践"></a>深入理解Java虚拟机 JVM高级特性与最佳实践</h1><p>世界上并没有完美的程序，但我们并不因此而沮丧，因为写程序本来就是一个不断追求完美的过程。</p>
 <a id="more"></a>
 <p>Java是一门结构严谨、面向对象的编程语言。它摆脱了硬件平台的束缚，实现了“一次编写，到处运行”的理想；它还提供了一个相对安全的内存管理和访问机制，避免了绝大部分的内存泄露和指针越界问题；它实现了热点代码检测和运行时编译及优化，这使得Java应用能随着运行时间的的增加而获得更高的性能；它有一套完整的应用程序接口，还有无数来自商业机构和开源社区的第三方类库来帮助它实现各种各样的功能……Java所带来的这些好处使程序开发效率得到了很大提升。</p>
 <p>###Java技术体系：</p>
@@ -554,7 +550,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-程序计数器（Program-Counter-Register）"><span class="nav-number">1.</span> <span class="nav-text">1.程序计数器（Program Counter Register）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Java虚拟机栈"><span class="nav-number">2.</span> <span class="nav-text">2.Java虚拟机栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-本地方法栈"><span class="nav-number">3.</span> <span class="nav-text">3.本地方法栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Java堆"><span class="nav-number">4.</span> <span class="nav-text">4.Java堆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-方法区"><span class="nav-number">5.</span> <span class="nav-text">5.方法区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-运行时常量池"><span class="nav-number">6.</span> <span class="nav-text">6.运行时常量池</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#深入理解Java虚拟机-JVM高级特性与最佳实践"><span class="nav-number">1.</span> <span class="nav-text">深入理解Java虚拟机 JVM高级特性与最佳实践</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-程序计数器（Program-Counter-Register）"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">1.程序计数器（Program Counter Register）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Java虚拟机栈"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">2.Java虚拟机栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-本地方法栈"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">3.本地方法栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Java堆"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">4.Java堆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-方法区"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">5.方法区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-运行时常量池"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">6.运行时常量池</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
