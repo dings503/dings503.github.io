@@ -82,19 +82,16 @@
 
 
 
-<meta name="description" content="世界上并没有完美的程序，但我们并不因此而沮丧，因为写程序本来就是一个不断追求完美的过程。">
+<meta name="description" content="Java与C++之间有一堵由内存动态分配和垃圾收集技术所围成的“高墙”，墙外面的人想进去，墙里面的人想出去。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深入理解JVM（1）">
-<meta property="og:url" content="http://yoursite.com/2016/04/15/JVM-1/index.html">
+<meta property="og:title" content="深入理解JVM（3）">
+<meta property="og:url" content="http://yoursite.com/2016/05/07/JVM-3/index.html">
 <meta property="og:site_name" content="dings503's blog">
-<meta property="og:description" content="世界上并没有完美的程序，但我们并不因此而沮丧，因为写程序本来就是一个不断追求完美的过程。">
-<meta property="og:image" content="https://raw.githubusercontent.com/dings503/dings503.github.io/master/img/JVM.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/dings503/dings503.github.io/master/img/Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.png">
-<meta property="og:updated_time" content="2016-04-29T14:01:34.022Z">
+<meta property="og:description" content="Java与C++之间有一堵由内存动态分配和垃圾收集技术所围成的“高墙”，墙外面的人想进去，墙里面的人想出去。">
+<meta property="og:updated_time" content="2016-05-07T09:01:51.740Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深入理解JVM（1）">
-<meta name="twitter:description" content="世界上并没有完美的程序，但我们并不因此而沮丧，因为写程序本来就是一个不断追求完美的过程。">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/dings503/dings503.github.io/master/img/JVM.png">
+<meta name="twitter:title" content="深入理解JVM（3）">
+<meta name="twitter:description" content="Java与C++之间有一堵由内存动态分配和垃圾收集技术所围成的“高墙”，墙外面的人想进去，墙里面的人想出去。">
 
 
 
@@ -112,7 +109,7 @@
   };
 </script>
 
-  <title> 深入理解JVM（1） | dings503's blog </title>
+  <title> 深入理解JVM（3） | dings503's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -252,7 +249,7 @@
             
             
               
-                深入理解JVM（1）
+                深入理解JVM（3）
               
             
           </h1>
@@ -264,8 +261,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-15T22:07:03+08:00" content="2016-04-15">
-              2016-04-15
+            <time itemprop="dateCreated" datetime="2016-05-07T15:39:30+08:00" content="2016-05-07">
+              2016-05-07
             </time>
           </span>
 
@@ -294,8 +291,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/04/15/JVM-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/15/JVM-1/" itemprop="commentsCount"></span>
+                <a href="/2016/05/07/JVM-3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/JVM-3/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -323,28 +320,38 @@
       
 
       
-        <p>世界上并没有完美的程序，但我们并不因此而沮丧，因为写程序本来就是一个不断追求完美的过程。</p>
+        <p>Java与C++之间有一堵由内存动态分配和垃圾收集技术所围成的“高墙”，墙外面的人想进去，墙里面的人想出去。</p>
 <a id="more"></a>
-<p><img src="https://raw.githubusercontent.com/dings503/dings503.github.io/master/img/JVM.png" alt="深入理解Java虚拟机 JVM高级特性与最佳实践"></p>
-<p>Java是一门结构严谨、面向对象的编程语言。它摆脱了硬件平台的束缚，实现了“一次编写，到处运行”的理想；它还提供了一个相对安全的内存管理和访问机制，避免了绝大部分的内存泄露和指针越界问题；它实现了热点代码检测和运行时编译及优化，这使得Java应用能随着运行时间的的增加而获得更高的性能；它有一套完整的应用程序接口，还有无数来自商业机构和开源社区的第三方类库来帮助它实现各种各样的功能……Java所带来的这些好处使程序开发效率得到了很大提升。</p>
-<h3 id="Java技术体系："><a href="#Java技术体系：" class="headerlink" title="Java技术体系："></a>Java技术体系：</h3><p>Java Card：支持一些Java小程序（Applets）运行在小内存设备（如智能卡）上的平台<br>Java ME（Micro Edition）:支持Java程序运行在移动终端（手机、PAD）上的平台<br>Java SE（Standard Edition）：支持面向桌面级应用（如windows下的应用程序）的Java平台<br>Java EE（Enterprise Edition）：支持使用多层架构的企业应用（如ERP、CRM应用）的Java平台</p>
-<h3 id="Java发展史："><a href="#Java发展史：" class="headerlink" title="Java发展史："></a>Java发展史：</h3><p>1991.4月Java前身Oak（橡树）问世。1995年5月23日，Oak语言改名为Java，自此之后，Java迅速发展，到现在已经发展到JDK1.8版本。</p>
-<h3 id="Java内存运行时数据区域"><a href="#Java内存运行时数据区域" class="headerlink" title="Java内存运行时数据区域"></a>Java内存运行时数据区域</h3><p>Java虚拟机在执行Java程序的过程中会把它所管理的内存划分为若干个不同的数据区域。这些区域都有自己的用途，以及创建和销毁的时间，有些区域随着虚拟机的启动而存在，有些区域则依赖用户线程的启动和结束而建立和销毁。<br>Java虚拟机所管理的内存将会包括以下几个运行时数据区域：</p>
-<p><img src="https://raw.githubusercontent.com/dings503/dings503.github.io/master/img/Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.png" alt="Java虚拟机运行时数据区"></p>
-<h4 id="1-程序计数器（Program-Counter-Register）"><a href="#1-程序计数器（Program-Counter-Register）" class="headerlink" title="1.程序计数器（Program Counter Register）"></a>1.程序计数器（Program Counter Register）</h4><p>程序计数器是一块较小的内存空间，它可以看做是当前线程所执行的字节码的行号指示器。字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖计数器来完成。  </p>
-<p>由于<strong>Java虚拟机的多线程是通过线程轮流切换并分配处理器执行时间的方式</strong>来实现的，在任何一个确定的时刻，一个处理器都只会执行一条线程中的指令，因此，为了线程切换后能恢复到正确的执行位置，每条线程都需要一个独立的程序计数器，并且各条线程之间的计数器互不影响，独立存储，把这类内存区域称为“线程私有的内存”。  </p>
-<p>如果线程正在执行的是一个Java方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址；如果正在执行的是Native方法，这个计数器值则为空（Undefined）。此内存区域是唯一一个在Java虚拟机规范中没有规定任何OutOfMemoryError情况的区域。</p>
-<h4 id="2-Java虚拟机栈"><a href="#2-Java虚拟机栈" class="headerlink" title="2.Java虚拟机栈"></a>2.Java虚拟机栈</h4><p>Java虚拟机栈也是线程私有的，它的生命周期与线程相同。  </p>
-<p>每个Java方法在执行时都会创建一个栈帧，用于存储局部变量表、操作数栈、动态链接、方法出口等信息。</p>
-<p>局部变量表存放了编译期可知的各种基本数据类型（boolean，char，byte，short，int，long，float，double）、对象引用和returnAddress类型(指向了一条字节码指令的地址)</p>
-<h4 id="3-本地方法栈"><a href="#3-本地方法栈" class="headerlink" title="3.本地方法栈"></a>3.本地方法栈</h4><p>本地方法栈与虚拟机栈的作用类似。虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，而本地方法栈则为虚拟机使用到的<strong>Native方法</strong>（Native方法就是一个Java调用非Java代码的接口，该方法的实现由非Java语言实现）服务。</p>
-<h4 id="4-Java堆"><a href="#4-Java堆" class="headerlink" title="4.Java堆"></a>4.Java堆</h4><p>Java堆是被所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，几乎所有的对象实例都在这里分配内存。  </p>
-<p>Java堆是垃圾收集器管理的主要区域，也被称为“GC堆”（Garbage Collected Heap），Java堆还可以细分为新生代和老年代。</p>
-<p>Java堆可以处于物理上不连续的内存空间中，只要逻辑上是连续的即可。在实现时，既可以实现固定大小的，也可以是可扩展的。不过当前主流的虚拟机都是按照可扩展来实现的。</p>
-<h4 id="5-方法区"><a href="#5-方法区" class="headerlink" title="5.方法区"></a>5.方法区</h4><p>方法区与Java堆一样，是各个线程共享的内存区域，它用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
-<p>Java虚拟机规范对方法区的限制很宽松，除了想Java堆一样不需要连续的内存和可以选择固定大小或者可扩展外，还可以选择不实现垃圾收集。</p>
-<h4 id="6-运行时常量池"><a href="#6-运行时常量池" class="headerlink" title="6.运行时常量池"></a>6.运行时常量池</h4><p>运行时常量池（Runtime Constant Pool）是方法区的一部分。Class文件中除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池，用于存放编译期生成的各种字面量和符号引用，这部分内容将在类加载后进入方法区的运行时常量池中存放。  </p>
-<p>除了保存Class文件中描述的符号引用外，还会把翻译出来的直接引用也存储在运行时常量池中。运行时常量池相对于Class文件常量池的另外一个重要特征是具备动态性。Java语言并不要求常量一定只有编译期才能产生，也就是并非预置于Class文件中常量池的内容才能进入方法区运行时常量池，运行期间也可能将新的常量放入池中。</p>
+<h1 id="垃圾收集器与内存分配策略"><a href="#垃圾收集器与内存分配策略" class="headerlink" title="垃圾收集器与内存分配策略"></a>垃圾收集器与内存分配策略</h1><h2 id="1-说明"><a href="#1-说明" class="headerlink" title="1.说明"></a>1.说明</h2><p>在Java运行时区域中，程序计数器、虚拟机栈、本地方法栈三个区域随线程而生，随线程而灭；栈中的栈帧随着方法的进入和退出而有条不紊的进行着出栈和入栈操作，每一个栈帧中分配多少内存基本上在类结构确定下来时就已知的，因此这几个区域的内存分配和回收都具备确定性，不用过多考虑回收的问题。  </p>
+<p>而Java堆和方法区则不一样，一个接口中的多个实现类需要的内存可能不一样，一个方法中的多个分支需要的内存也可能不同，只有在程序处于运行期间才能知道会创建哪些对象，这部分内存的分配和回收都是动态的。垃圾收集器所关注的正是这部分内存。</p>
+<h2 id="2-如何判断对象是存活状态还是死去状态"><a href="#2-如何判断对象是存活状态还是死去状态" class="headerlink" title="2.如何判断对象是存活状态还是死去状态"></a>2.如何判断对象是存活状态还是死去状态</h2><h3 id="判断算法"><a href="#判断算法" class="headerlink" title="判断算法"></a>判断算法</h3><h4 id="1-引用计数算法"><a href="#1-引用计数算法" class="headerlink" title="1.引用计数算法"></a>1.引用计数算法</h4><p>算法说明：<br>　　给对象中添加一个引用计数器，每当一个地方引用它的时候，计数器值就加1,；当引用失效时，计数器值就减1；任何时刻计数器为0的对象就是不可能再被使用的。</p>
+<p>主流的Java虚拟机没有选用引用计数算法来管理内存，最主要的原因是它很难解决对象之间相互循环引用的问题。</p>
+<h4 id="2-可达性分析算法"><a href="#2-可达性分析算法" class="headerlink" title="2.可达性分析算法"></a>2.可达性分析算法</h4><p>算法基本思路：<br>　　通过一系列的称为“GC Roots”的对象作为起始点，从这些节点开始向下搜索，搜索所经过的路径称为引用链（Reference Chain），当一个对象到GC Roots没有任何引用链相连时，则证明此对象是不可引用的，会被判定为可回收对象。</p>
+<p>可作为GC Roots的对象包括以下几种：</p>
+<ol>
+<li>虚拟机栈（栈帧中的本地变量表）中引用的对象</li>
+<li>方法区中类静态属性引用的对象</li>
+<li>方法区中常量引用的对象</li>
+<li>本地方法栈中Native方法引用的对象</li>
+</ol>
+<h3 id="判断条件"><a href="#判断条件" class="headerlink" title="判断条件"></a>判断条件</h3><p>要真正宣告一个对象的死亡，至少要经历两次标记过程：如果对象在进行可达性分析后发现没有与GC Roots相连接的引用链，那它将会被第一次标记并且进行一次筛选，筛选的条件是此对象是否有必要执行finalize()方法。如果对象被判定有必要执行finalize()方法，那么对象将会放置在一个叫做F-Queue的队列之中，并在稍后由一个虚拟机自动建立的、低优先级的Finalizer线程去执行它。finalize()方法是对象逃脱死亡命运的最后一次机会，稍后GC将对F-Queue中的对象进行第二次小规模标记，如果对象要在finalize()中成功拯救自己——重新与引用链上的任何一个对象建立关联，那在第二次标记时它将被移除“即将回收”的集合；如果对象这时候还没有逃脱，那基本上它就真的被回收了。</p>
+<h2 id="引用（Reference）"><a href="#引用（Reference）" class="headerlink" title="引用（Reference）"></a>引用（Reference）</h2><p>（1） 强引用（Strong Reference）：  </p>
+<p>　　指在程序代码中普遍存在的，类似“Object obj = new Object()”这类的引用，只要强引用还存在，垃圾收集器永远不会回收掉被引用的对象。</p>
+<p>（2） 软引用(Soft Reference)：  </p>
+<p>　　用来描述一些还有用但并非必需的对象。对于软引用对象，在系统将要发生内存溢出异常之前，将会把这些对象列进回收范围之中进行第二次回收。如果这次回收还没有足够的内存，才会抛出内存溢出异常。  </p>
+<p>（3） 弱引用（Weak Reference）：<br>　　<br>　　用来描述非必需对象的，但是它的强度比软引用更弱一些，被弱引用关联的对象只能生存到下一次垃圾收集发生之前。当垃圾收集器工作时，无论当前内存是否足够，都会回收掉只被弱引用关联的对象。</p>
+<p>（4） 虚引用（Phantom Reference）：</p>
+<p>　　也被称为幽灵引用或者幻影引用，它是最弱的一种引用关系。一个对象是否有虚引用的存在，完全不会对其生存时间构成影响，也无法通过虚引用来取得一个对象实例。为一个对象设置虚引用关联的唯一目的就是能在这个对象被收集器回收时收到一个系统通知。</p>
+<h2 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h2><h3 id="1-标记-清除算法"><a href="#1-标记-清除算法" class="headerlink" title="1.标记-清除算法"></a>1.标记-清除算法</h3><p>分标记和清除两个阶段，首先标记出所有需要回收的对象，在标记完成之后统一回收所有被标记的对象。</p>
+<p>主要不足有两个：  </p>
+<ol>
+<li>效率问题：标记和清除两个过程效率都不高</li>
+<li>空间问题：标记清除之后会产生大量不连续的内存碎片，空间碎片太多可能会导致以后在程序运行过程中需要分配较大对象时，无法找到足够的连续内存，而不得不提前触发另一次垃圾收集动作。</li>
+</ol>
+<h3 id="2-复制算法"><a href="#2-复制算法" class="headerlink" title="2.复制算法"></a>2.复制算法</h3><p>将可用内存按容量大小划分为大小相等的两块，每次只使用其中一块。当这一块的内存用完了，就将还存活的对象复制到另一块上面，然后再把已使用过的内存空间一次清理掉。<br>这样使得每次都是对整个半区进行内存回收，内存分配时也就不用考虑内存碎片等复杂情况，只要移动指针按顺序分配内存即可，实现简单，运行高效。但是会将内存缩小为原来的一半，代价稍高。现在的商业虚拟机采用此种收集算法来回收新生代。研究已经表明并不需要按照1:1的比例来划分内存空间。</p>
+<h3 id="3-标记-整理算法"><a href="#3-标记-整理算法" class="headerlink" title="3.标记-整理算法"></a>3.标记-整理算法</h3><p>标记过程与“标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向一端移动，然后直接清理掉端边界以外的内存</p>
+<h3 id="4-分代手机算法"><a href="#4-分代手机算法" class="headerlink" title="4.分代手机算法"></a>4.分代手机算法</h3><p>当前商业虚拟机的垃圾收集都采用“分代收集”（Generational Collection）算法。<br>根据对象存活周期的不同将内存划分为几块。一般是把Java堆分为<strong>新生代</strong>和<strong>老年代</strong>。<br>在新生代中，每次垃圾收集时都发现有大批对象死去，只有少量存活，那就采用复制算法，只需要付出少量存活对象的复制成本就可以完成收集。而老年代中因为对象存活率高，没有额外空间对它进行分配担保，就必须使用“标记-清除”或者“标记-整理”算法来进行回收。</p>
+<p>未完待续……</p>
 
       
     </div>
@@ -374,17 +381,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/12/blog1/" rel="next" title="Hexo搭建Github静态博客">
-                <i class="fa fa-chevron-left"></i> Hexo搭建Github静态博客
+              <a href="/2016/05/03/diary-1/" rel="next" title="气宗 VS 剑宗">
+                <i class="fa fa-chevron-left"></i> 气宗 VS 剑宗
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/29/JVM-2/" rel="prev" title="深入理解JVM（2）">
-                深入理解JVM（2） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -399,10 +402,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/04/15/JVM-1/"
-     data-title="深入理解JVM（1）"
+        <div class="ds-share flat" data-thread-key="2016/05/07/JVM-3/"
+     data-title="深入理解JVM（3）"
      data-content=""
-     data-url="http://yoursite.com/2016/04/15/JVM-1/">
+     data-url="http://yoursite.com/2016/05/07/JVM-3/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -429,8 +432,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/15/JVM-1/"
-           data-title="深入理解JVM（1）" data-url="http://yoursite.com/2016/04/15/JVM-1/">
+      <div class="ds-thread" data-thread-key="2016/05/07/JVM-3/"
+           data-title="深入理解JVM（3）" data-url="http://yoursite.com/2016/05/07/JVM-3/">
       </div>
     
   </div>
@@ -575,7 +578,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java技术体系："><span class="nav-number">1.</span> <span class="nav-text">Java技术体系：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java发展史："><span class="nav-number">2.</span> <span class="nav-text">Java发展史：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java内存运行时数据区域"><span class="nav-number">3.</span> <span class="nav-text">Java内存运行时数据区域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-程序计数器（Program-Counter-Register）"><span class="nav-number">3.1.</span> <span class="nav-text">1.程序计数器（Program Counter Register）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Java虚拟机栈"><span class="nav-number">3.2.</span> <span class="nav-text">2.Java虚拟机栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-本地方法栈"><span class="nav-number">3.3.</span> <span class="nav-text">3.本地方法栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-Java堆"><span class="nav-number">3.4.</span> <span class="nav-text">4.Java堆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-方法区"><span class="nav-number">3.5.</span> <span class="nav-text">5.方法区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-运行时常量池"><span class="nav-number">3.6.</span> <span class="nav-text">6.运行时常量池</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#垃圾收集器与内存分配策略"><span class="nav-number">1.</span> <span class="nav-text">垃圾收集器与内存分配策略</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-说明"><span class="nav-number">1.1.</span> <span class="nav-text">1.说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-如何判断对象是存活状态还是死去状态"><span class="nav-number">1.2.</span> <span class="nav-text">2.如何判断对象是存活状态还是死去状态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断算法"><span class="nav-number">1.2.1.</span> <span class="nav-text">判断算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-引用计数算法"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">1.引用计数算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-可达性分析算法"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">2.可达性分析算法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判断条件"><span class="nav-number">1.2.2.</span> <span class="nav-text">判断条件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用（Reference）"><span class="nav-number">1.3.</span> <span class="nav-text">引用（Reference）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾收集算法"><span class="nav-number">1.4.</span> <span class="nav-text">垃圾收集算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-标记-清除算法"><span class="nav-number">1.4.1.</span> <span class="nav-text">1.标记-清除算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-复制算法"><span class="nav-number">1.4.2.</span> <span class="nav-text">2.复制算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-标记-整理算法"><span class="nav-number">1.4.3.</span> <span class="nav-text">3.标记-整理算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-分代手机算法"><span class="nav-number">1.4.4.</span> <span class="nav-text">4.分代手机算法</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
