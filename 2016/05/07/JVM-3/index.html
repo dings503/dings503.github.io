@@ -88,7 +88,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/05/07/JVM-3/index.html">
 <meta property="og:site_name" content="dings503's blog">
 <meta property="og:description" content="Java与C++之间有一堵由内存动态分配和垃圾收集技术所围成的“高墙”，墙外面的人想进去，墙里面的人想出去。">
-<meta property="og:updated_time" content="2016-05-07T09:01:51.740Z">
+<meta property="og:updated_time" content="2016-05-21T07:23:10.074Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解JVM（3）">
 <meta name="twitter:description" content="Java与C++之间有一堵由内存动态分配和垃圾收集技术所围成的“高墙”，墙外面的人想进去，墙里面的人想出去。">
@@ -351,7 +351,6 @@
 <h3 id="2-复制算法"><a href="#2-复制算法" class="headerlink" title="2.复制算法"></a>2.复制算法</h3><p>将可用内存按容量大小划分为大小相等的两块，每次只使用其中一块。当这一块的内存用完了，就将还存活的对象复制到另一块上面，然后再把已使用过的内存空间一次清理掉。<br>这样使得每次都是对整个半区进行内存回收，内存分配时也就不用考虑内存碎片等复杂情况，只要移动指针按顺序分配内存即可，实现简单，运行高效。但是会将内存缩小为原来的一半，代价稍高。现在的商业虚拟机采用此种收集算法来回收新生代。研究已经表明并不需要按照1:1的比例来划分内存空间。</p>
 <h3 id="3-标记-整理算法"><a href="#3-标记-整理算法" class="headerlink" title="3.标记-整理算法"></a>3.标记-整理算法</h3><p>标记过程与“标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向一端移动，然后直接清理掉端边界以外的内存</p>
 <h3 id="4-分代手机算法"><a href="#4-分代手机算法" class="headerlink" title="4.分代手机算法"></a>4.分代手机算法</h3><p>当前商业虚拟机的垃圾收集都采用“分代收集”（Generational Collection）算法。<br>根据对象存活周期的不同将内存划分为几块。一般是把Java堆分为<strong>新生代</strong>和<strong>老年代</strong>。<br>在新生代中，每次垃圾收集时都发现有大批对象死去，只有少量存活，那就采用复制算法，只需要付出少量存活对象的复制成本就可以完成收集。而老年代中因为对象存活率高，没有额外空间对它进行分配担保，就必须使用“标记-清除”或者“标记-整理”算法来进行回收。</p>
-<p>未完待续……</p>
 
       
     </div>
