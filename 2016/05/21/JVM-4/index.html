@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JVM," />
 
 
 
@@ -82,15 +82,18 @@
 
 
 
-<meta name="description" content="Walk steps step by step">
-<meta property="og:type" content="website">
-<meta property="og:title" content="dings503's blog">
-<meta property="og:url" content="http://yoursite.com/tags/GitHub/index.html">
+<meta name="description" content="如果说收集算法是内存回收的方法论，那么垃圾收集器就是内存回收的具体实现。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入理解JVM（4）">
+<meta property="og:url" content="http://yoursite.com/2016/05/21/JVM-4/index.html">
 <meta property="og:site_name" content="dings503's blog">
-<meta property="og:description" content="Walk steps step by step">
+<meta property="og:description" content="如果说收集算法是内存回收的方法论，那么垃圾收集器就是内存回收的具体实现。">
+<meta property="og:image" content="https://raw.githubusercontent.com/dings503/dings503.github.io/master/img/HotSpot虚拟机的垃圾收集器.png">
+<meta property="og:updated_time" content="2016-05-21T06:33:09.722Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="dings503's blog">
-<meta name="twitter:description" content="Walk steps step by step">
+<meta name="twitter:title" content="深入理解JVM（4）">
+<meta name="twitter:description" content="如果说收集算法是内存回收的方法论，那么垃圾收集器就是内存回收的具体实现。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/dings503/dings503.github.io/master/img/HotSpot虚拟机的垃圾收集器.png">
 
 
 
@@ -108,7 +111,7 @@
   };
 </script>
 
-  <title> 标签: GitHub | dings503's blog </title>
+  <title> 深入理解JVM（4） | dings503's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -139,7 +142,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -227,46 +230,172 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        GitHub
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                深入理解JVM（4）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-21T14:23:47+08:00" content="2016-05-21">
+              2016-05-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/JVM学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JVM学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/21/JVM-4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/21/JVM-4/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>如果说收集算法是内存回收的方法论，那么垃圾收集器就是内存回收的具体实现。</p>
+<a id="more"></a>
+<h1 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h1><p><img src="https://raw.githubusercontent.com/dings503/dings503.github.io/master/img/HotSpot虚拟机的垃圾收集器.png" alt="HotSpot虚拟机的垃圾收集器"></p>
 
-      <h1 class="post-title">
+      
+    </div>
+    
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/04/12/blog1/" itemprop="url">
-              
-                <span itemprop="name">Hexo搭建Github静态博客</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
+      
+    </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-04-12T09:27:15+08:00"
-              content="2016-04-12" >
-          04-12
-        </time>
-      </div>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JVM/" rel="tag">#JVM</a>
+          
+        </div>
+      
 
-    </header>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/08/JS-1/" rel="next" title="javascript的三种对话框">
+                <i class="fa fa-chevron-left"></i> javascript的三种对话框
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/05/21/JVM-4/"
+     data-title="深入理解JVM（4）"
+     data-content=""
+     data-url="http://yoursite.com/2016/05/21/JVM-4/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -274,6 +403,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/21/JVM-4/"
+           data-title="深入理解JVM（4）" data-url="http://yoursite.com/2016/05/21/JVM-4/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -293,8 +430,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/touxiang.jpg"
@@ -398,6 +544,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#垃圾收集器"><span class="nav-number">1.</span> <span class="nav-text">垃圾收集器</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -517,6 +674,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
