@@ -88,7 +88,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/07/11/XStream/index.html">
 <meta property="og:site_name" content="dings503's blog">
 <meta property="og:description" content="XStream是一个将java对象和XML进行相互转换的工具。">
-<meta property="og:updated_time" content="2016-07-11T13:15:07.455Z">
+<meta property="og:updated_time" content="2016-07-11T13:20:29.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XStream:java对象与XML的相互转换">
 <meta name="twitter:description" content="XStream是一个将java对象和XML进行相互转换的工具。">
@@ -347,7 +347,7 @@
 <p>没有发现类定义</p>
 <p>原因：前期已经导入xstream-1.4.jar包，此处错误是没有导入xmlpull.jar包引起的，下载并导入该jar包后错误消失。</p>
 <ol>
-<li>在xml转java对象时出现错误：<br>Exception in thread “main” java.lang.NoSuchMethodError: org.xmlpull.v1.XmlPullParserFactory.newInstance(Ljava/lang/String;Ljava/lang/Class;)Lorg/xmlpull/v1/XmlPullParserFactory;at com.thoughtworks.xstream.io.xml.XppDriver.createParser(XppDriver.java:57)<br>具体原因还是jar包引起的，原来导入的是xmlpull_1_0_5.jar，换成xmlpull-1.1.3.1.jar后又出现错误<br>Exception in thread “main” com.thoughtworks.xstream.io.StreamException: Cannot create XmlPullParser at     com.thoughtworks.xstream.io.xml.AbstractXppDriver.createReader(AbstractXppDriver.java:60)<br>最后换成了xmlpull-xpp3-1.1.4c.jar，问题才解决。</li>
+<li>在xml转java对象时出现错误：Exception in thread “main” java.lang.NoSuchMethodError: org.xmlpull.v1.XmlPullParserFactory.newInstance(Ljava/lang/String;Ljava/lang/Class;)Lorg/xmlpull/v1/XmlPullParserFactory;at com.thoughtworks.xstream.io.xml.XppDriver.createParser(XppDriver.java:57),具体原因还是jar包引起的，原来导入的是xmlpull_1_0_5.jar，换成xmlpull-1.1.3.1.jar后又出现错误Exception in thread “main” com.thoughtworks.xstream.io.StreamException: Cannot create XmlPullParser at com.thoughtworks.xstream.io.xml.AbstractXppDriver.createReader(AbstractXppDriver.java:60),最后换成了xmlpull-xpp3-1.1.4c.jar，问题才解决。</li>
 </ol>
 <h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><ol>
 <li>jar包的重要性</li>
@@ -357,15 +357,18 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias(&quot;修改后的别名&quot;,类的类型);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>设置类成员别名<br>格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">aliasField(&quot;修改后的别名&quot;,类的类型,&quot;类成员名&quot;); </span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"> - 设置类成员为XML一个元素上的属性,并设置属性别名</span><br><span class="line">   格式：</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aliasField(&quot;修改后的别名&quot;,类的类型,&quot;类成员名&quot;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置类成员为XML一个元素上的属性,并设置属性别名<br>格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useAttributeFor(类的类型,&quot;类成员名称&quot;);</span><br><span class="line">aliasAttribute(类的类型，&quot;类成员名称&quot;,&quot;修改后的别名&quot;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将xml转为java对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String xml = xStream.toXML(person);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-</ol>
-<p>useAttributeFor(类的类型,”类成员名称”);<br>aliasAttribute(类的类型，”类成员名称”,”修改后的别名”);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 将xml转为java对象</span><br></pre></td></tr></table></figure></p>
-<p>String xml = xStream.toXML(person);<br>``` </p>
-<ol>
-<li>注意设置类别名和类成员别名的区别，尤其是在一个类是另一个类的成员的情况下，如前面代码中的Profile类就是Person类的一个成员。</li>
+<li><p>注意设置类别名和类成员别名的区别，尤其是在一个类是另一个类的成员的情况下，如前面代码中的Profile类就是Person类的一个成员。</p>
+</li>
 </ol>
 
       
