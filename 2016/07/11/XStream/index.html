@@ -88,7 +88,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/07/11/XStream/index.html">
 <meta property="og:site_name" content="dings503's blog">
 <meta property="og:description" content="XStream是一个将java对象和XML进行相互转换的工具。">
-<meta property="og:updated_time" content="2016-07-11T13:12:03.104Z">
+<meta property="og:updated_time" content="2016-07-11T13:13:16.398Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XStream:java对象与XML的相互转换">
 <meta name="twitter:description" content="XStream是一个将java对象和XML进行相互转换的工具。">
@@ -353,11 +353,12 @@
 <li>jar包的重要性</li>
 <li><p>XStream的几个方法的应用：</p>
 <ul>
-<li>设置类别名<br>格式： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- 设置类成员别名  </span><br><span class="line">  格式： ```aliasField(&quot;修改后的别名&quot;,类的类型,&quot;类成员名&quot;); ``` </span><br><span class="line">- 设置类成员为XML一个元素上的属性,并设置属性别名</span><br><span class="line">  格式： ```useAttributeFor(类的类型,&quot;类成员名称&quot;);</span><br></pre></td></tr></table></figure></li>
+<li><p>设置类别名<br>格式： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> - 设置类成员别名  </span><br><span class="line">   格式：</span><br><span class="line"> ```aliasField(&quot;修改后的别名&quot;,类的类型,&quot;类成员名&quot;); ``` </span><br><span class="line"></span><br><span class="line"> - 设置类成员为XML一个元素上的属性,并设置属性别名</span><br><span class="line">   格式： </span><br><span class="line">```useAttributeFor(类的类型,&quot;类成员名称&quot;);</span><br><span class="line">   aliasAttribute(类的类型，&quot;类成员名称&quot;,&quot;修改后的别名&quot;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将xml转为java对象<br><code>String xml = xStream.toXML(person);</code> </p>
+</li>
 </ul>
-<pre><code class="aliasAttribute(类的类型，&quot;类成员名称&quot;,&quot;修改后的别名&quot;);```">- 将xml转为java对象
-```String xml = xStream.toXML(person);
-</code></pre>
 </li>
 <li>注意设置类别名和类成员别名的区别，尤其是在一个类是另一个类的成员的情况下，如前面代码中的Profile类就是Person类的一个成员。</li>
 </ol>
