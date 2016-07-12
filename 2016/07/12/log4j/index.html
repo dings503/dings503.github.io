@@ -88,7 +88,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/07/12/log4j/index.html">
 <meta property="og:site_name" content="dings503's blog">
 <meta property="og:description" content="log4j是用java写的优秀日志工具包。">
-<meta property="og:updated_time" content="2016-07-12T13:40:34.983Z">
+<meta property="og:updated_time" content="2016-07-12T13:44:46.333Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="log4j">
 <meta name="twitter:description" content="log4j是用java写的优秀日志工具包。">
@@ -339,29 +339,29 @@
 <p>log4j的配置文件log4j.properties内容如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">log4j.rootLogger = DEBUG, A1</span><br><span class="line">log4j.appender.A1 = org.apache.log4j.ConsoleAppender</span><br><span class="line">log4j.appender.A1.layout = org.apache.log4j.PatternLayout</span><br><span class="line">log4j.appender.A1.layout.ConversionPattern = %-4r [%t] %-5p %c %x - %m%n</span><br></pre></td></tr></table></figure>
 <p>相关说明：</p>
-<ol>
+<ul>
 <li>定义了一个根记录器及其级别：   DEBUG&gt;INFO&gt;WARN&gt;ERROR&gt;FATAL。</li>
-</ol>
+</ul>
 <p>定义根记录器的格式为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">log4j.rootLogger = [ level ], appendName1, appendName2, …appendNameN</span><br></pre></td></tr></table></figure></p>
 <p>定义非根记录器的格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">log4j.logger.loggerName1 =  level ],appendName1,appendName2,...appendNameN</span><br></pre></td></tr></table></figure></p>
 <p>同一个记录器可有多个输出端。</p>
-<ol>
+<ul>
 <li>定义appender的输出目的地，格式：</li>
-</ol>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">log4j.appneder.appendName =  目的地格式</span><br></pre></td></tr></table></figure>
 <p>主要有以下几种常用的输出目的地：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">org.apache.log4j.ConsoleAppender                将日志信息输出到控制台</span><br><span class="line">org.apache.log4j.FileAppender                        将日志信息输出到一个文件</span><br><span class="line">org.apache.log4j.DailyRollingFileAppender     将日志信息每天输出到一个新的文件</span><br><span class="line">org.apache.log4jRollingFileAppender              将日志信息输出到一个文件，能够指定文件的大小，当文件大小到达指定尺寸时会自动把文件改名</span><br><span class="line">org.apache.log4j.WriteAppender                     将日志信息以流的形式发送到任意指定的地方</span><br><span class="line">org.apache.log4j.jdbc.JDBCAppender            将日志信息通过JDBC输出到数据库中</span><br></pre></td></tr></table></figure></p>
-<ol>
+<ul>
 <li><p>定义所选目的地的相关参数，格式：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">log4j.appender.appendName.optionName = value</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>输出格式（布局）layout，格式：</p>
 </li>
-</ol>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">log4j.appender.appendName.layout = 布局</span><br></pre></td></tr></table></figure>
 <p>主要有以下几种布局模式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">org.apache.log4j.HTMLLayout                       以HTML表格形式布局</span><br><span class="line">org.apache.log4j.PatternLayout                    可以灵活指定布局模式</span><br><span class="line">org.apache.log4j.SimpleLayout                     包含日志信息的级别和信息字符串</span><br></pre></td></tr></table></figure></p>
-<ol>
+<ul>
 <li>定义与所选布局模式相关的设置信息，格式：</li>
-</ol>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">log4j.appender.appendName.layout.optionName = value</span><br></pre></td></tr></table></figure>
 <p>其中有一个optionName = ConversionPattern,这个ConversionPattern有许多个参数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">%c              输出日志信息所属类的全名</span><br><span class="line">%d              输出日志时间点的日期或时间，默认格式是ISO8601，也可以在其后指定格式，比如： %d&#123;yyy-MM-dd HH:mm:ss&#125;,输出类似2016-07-06 17:15:30</span><br><span class="line">%f               输出日志信息所属类的类名</span><br><span class="line">%l               输出日志时间的发生位置，即输出日志信息的语句处于它所在类的第几行</span><br><span class="line">%m             输出代码中指定的信息，如log(message)中的message</span><br><span class="line">%n              输出一个回车换行符，windows平台为“/r/n”,Unix平台为&quot;/n&quot;</span><br><span class="line">%p              输出优先级，即DEBUG,INFO,WARN,ERROR,FATAL.如果是调用debug()，则输出debug</span><br><span class="line">%r               输出自应用启动到输出该日志信息所耗费的毫秒数</span><br><span class="line">%t               输出产生改日志时间的线程名</span><br></pre></td></tr></table></figure></p>
 <p>log4j.properties中更详细的配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#定义了两个输出端</span><br><span class="line">log4j.rootLogger = DEBUG, A1, A2</span><br><span class="line">#定义A1输出到控制器</span><br><span class="line">log4j.appender.A1 = org.apache.log4j.ConsoleAppender</span><br><span class="line">#定义A1的布局模式为PatternLayout</span><br><span class="line">log4j.appender.A1.layout = org.apache.log4j.PatternLayout</span><br><span class="line">#定义A1的输出格式</span><br><span class="line">log4j.appender.A1.layout.ConversionPattern = %-4r [%t] %-5p %c - %m%n</span><br><span class="line">#定义A2输出到文件</span><br><span class="line">log4j.appender.A2 = org.apache.log4j.RollingFileAppender</span><br><span class="line">#定义A2要输出到哪一个文件</span><br><span class="line">log4j.appender.A2.File = F://example3.log</span><br><span class="line">#定义A2的输出文件的最大长度</span><br><span class="line">log4j.appender.A2.MaxFileSize = 1KB</span><br><span class="line">#定义A2的备份文件数</span><br><span class="line">log4j.appender.A2.MaxBackupIndex = 3</span><br><span class="line">#定义A2的布局模式为PatternLayout</span><br><span class="line">log4j.appender.A2.layout = org.apache.log4j.PatternLayout</span><br><span class="line">#定义A2的输出格式</span><br><span class="line">log4j.appender.A2.layout.ConversionPattern = %d&#123;yyyy-MM-dd hh:mm:ss&#125;:%p %t %c - %m%n</span><br><span class="line"></span><br><span class="line">#定义A3输出到数据库</span><br><span class="line">log4j.appender.A3 = org.apache.log4j.jdbc.JDBCAppender</span><br><span class="line">log4j.appender.A3.BufferSize = 40</span><br><span class="line">log4j.appender.A3.Driver = com.mircsoft.jdbc.sqlserver.SQLServerDriver</span><br><span class="line">log4j.appender.A3.URL = jdbc:mircsoft:sqlserver://127.0.0.1:1433;DatabaseName=aa</span><br><span class="line">log4j.appender.A3.User = sa</span><br><span class="line">log4j.appender.A3.password = </span><br><span class="line">log4j.appender.A3.layout = org.apache.log4j.PatternLayout</span><br><span class="line">log4j.appender.A3.layout.ConversionPattern = INSERT INTO log4j</span><br></pre></td></tr></table></figure></p>
