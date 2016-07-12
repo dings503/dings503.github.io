@@ -88,7 +88,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/07/12/log4j/index.html">
 <meta property="og:site_name" content="dings503's blog">
 <meta property="og:description" content="log4j是用java写的优秀日志工具包。">
-<meta property="og:updated_time" content="2016-07-12T13:58:11.466Z">
+<meta property="og:updated_time" content="2016-07-12T13:59:50.190Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="log4j日志工具包">
 <meta name="twitter:description" content="log4j是用java写的优秀日志工具包。">
@@ -332,7 +332,7 @@
       
         <p>log4j是用java写的优秀日志工具包。</p>
 <a id="more"></a>
-<p>学习时的参考网址：<a href="http://lavasoft.blog.51cto.com/62575/78437/" target="_blank" rel="external">http://lavasoft.blog.51cto.com/62575/78437/</a></p>
+<p>学习时的参考网址：<a href="http://blog.csdn.net/nengyu/article/details/6804887" target="_blank" rel="external">http://blog.csdn.net/nengyu/article/details/6804887</a></p>
 <p>jar包的<a href="http://logging.apache.org/log4j/2.x/" target="_blank" rel="external">下载地址</a></p>
 <p>测试代码如下:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">package com.dingsheng.test;</span><br><span class="line">import org.apache.log4j.Logger;</span><br><span class="line">import org.apache.log4j.PropertyConfigurator;</span><br><span class="line">//注意此处引用包的名称，不是util下的，而是apach下的</span><br><span class="line">public class TestLog &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Logger logger = Logger.getLogger(TestLog.class);</span><br><span class="line">		PropertyConfigurator.configure(&quot;src/log4j.properties&quot;);</span><br><span class="line">		logger.debug(&quot;debug&quot;);</span><br><span class="line">		logger.info(&quot;info&quot;);</span><br><span class="line">		logger.error(&quot;error&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
