@@ -88,7 +88,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/07/12/baseJava/index.html">
 <meta property="og:site_name" content="dings503's blog">
 <meta property="og:description" content="写这篇博客是为了复习一下Java语言的重要知识点。工作上用到的是Java，所以很有必要再好好复习一下Java基础。争取每天写一点，做到知识点的回顾，加深印象。">
-<meta property="og:updated_time" content="2016-07-12T14:49:47.427Z">
+<meta property="og:updated_time" content="2016-07-13T14:09:48.297Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java要点">
 <meta name="twitter:description" content="写这篇博客是为了复习一下Java语言的重要知识点。工作上用到的是Java，所以很有必要再好好复习一下Java基础。争取每天写一点，做到知识点的回顾，加深印象。">
@@ -334,7 +334,26 @@
 <a id="more"></a>
 <h1 id="参考书："><a href="#参考书：" class="headerlink" title="参考书："></a>参考书：</h1><p>Java核心技术<br>Java编程思想等</p>
 <h1 id="JDK环境配置"><a href="#JDK环境配置" class="headerlink" title="JDK环境配置"></a>JDK环境配置</h1><p>环境配置不过多复习了，主要在于环境变量的配置。可以上网查资料。</p>
-<h1 id="Java基本语言"><a href="#Java基本语言" class="headerlink" title="Java基本语言"></a>Java基本语言</h1><h1 id="面向对象方面"><a href="#面向对象方面" class="headerlink" title="面向对象方面"></a>面向对象方面</h1><h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><h1 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h1><h1 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h1><h1 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h1>
+<h1 id="Java基本语言"><a href="#Java基本语言" class="headerlink" title="Java基本语言"></a>Java基本语言</h1><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>Java中共有8种：byte,short,int,long,float,double,char,boolean</p>
+<h2 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h2><ol>
+<li>输入<br>首先构造一个Scanner对象，并与标准输入流System.in关联：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Scanner in = new Scanner(System.in);</span><br><span class="line">String name = in.nextLine();      //nextLine方法将输入一行</span><br><span class="line">String firstName = in.next();     //next方法读取一个单词</span><br><span class="line">int age = in.nextInt();                //nextInt方法读取一个整数，其他的一次类推</span><br></pre></td></tr></table></figure>
+<ol>
+<li>输出<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(str);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="文件输入与输出"><a href="#文件输入与输出" class="headerlink" title="文件输入与输出"></a>文件输入与输出</h2><p>要想对文件进行读取，就需要一个用File对象构造一个Scanner对象：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Scanner in = new Scanner(new File(&quot;myFile.txt&quot;));</span><br></pre></td></tr></table></figure></p>
+<p>如果文件名中包含反斜杠符号，就要在每个反斜杠之前再加上一个额外的反斜杠：<br>“c:\mydirectory\myFile.txt”</p>
+<p>要想写入文件，就需要构造一个PrintWriter对象。在构造器中，只需要提供文件名：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PrintWriter out = new PrintWriter(&quot;myFile.txt&quot;);</span><br></pre></td></tr></table></figure></p>
+<p>如果文件不存在，则可以像输出到System.out一样，使用print命令。</p>
+<h2 id="控制流程"><a href="#控制流程" class="headerlink" title="控制流程"></a>控制流程</h2><ol>
+<li>条件语句：if…else…<br>2.循环语句：while,do…while,for<br>3.多重选择：switch<br>4.中断控制流程语句：break，continue<br>5.For each循环：<br>实例：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for(int element: a)</span><br><span class="line">    System.out.println(element);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>打印数组a的每一个元素，一个元素占一行。</p>
+<p>for each 循环语句的循环变量将会遍历数组中的每个元素，而不需要使用下标值。</p>
+<h1 id="面向对象方面"><a href="#面向对象方面" class="headerlink" title="面向对象方面"></a>面向对象方面</h1><h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><h1 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h1><h1 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h1><h1 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h1>
       
     </div>
     
@@ -560,7 +579,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#参考书："><span class="nav-number">1.</span> <span class="nav-text">参考书：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JDK环境配置"><span class="nav-number">2.</span> <span class="nav-text">JDK环境配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java基本语言"><span class="nav-number">3.</span> <span class="nav-text">Java基本语言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象方面"><span class="nav-number">4.</span> <span class="nav-text">面向对象方面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常"><span class="nav-number">5.</span> <span class="nav-text">异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IO"><span class="nav-number">6.</span> <span class="nav-text">IO</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#容器"><span class="nav-number">7.</span> <span class="nav-text">容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程"><span class="nav-number">8.</span> <span class="nav-text">线程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#参考书："><span class="nav-number">1.</span> <span class="nav-text">参考书：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JDK环境配置"><span class="nav-number">2.</span> <span class="nav-text">JDK环境配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java基本语言"><span class="nav-number">3.</span> <span class="nav-text">Java基本语言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">3.1.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入输出"><span class="nav-number">3.2.</span> <span class="nav-text">输入输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件输入与输出"><span class="nav-number">3.3.</span> <span class="nav-text">文件输入与输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制流程"><span class="nav-number">3.4.</span> <span class="nav-text">控制流程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象方面"><span class="nav-number">4.</span> <span class="nav-text">面向对象方面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常"><span class="nav-number">5.</span> <span class="nav-text">异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IO"><span class="nav-number">6.</span> <span class="nav-text">IO</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#容器"><span class="nav-number">7.</span> <span class="nav-text">容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程"><span class="nav-number">8.</span> <span class="nav-text">线程</span></a></li></ol></div>
             
           </div>
         </section>
