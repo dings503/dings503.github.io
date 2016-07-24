@@ -84,13 +84,13 @@
 
 <meta name="description" content="最近想学习一下spring框架，并把一些知识要点记录一下。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spring学习笔记">
+<meta property="og:title" content="简单了解Spring">
 <meta property="og:url" content="http://yoursite.com/2016/07/23/spring-1/index.html">
 <meta property="og:site_name" content="dings503's blog">
 <meta property="og:description" content="最近想学习一下spring框架，并把一些知识要点记录一下。">
-<meta property="og:updated_time" content="2016-07-24T01:41:26.420Z">
+<meta property="og:updated_time" content="2016-07-24T01:53:58.614Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spring学习笔记">
+<meta name="twitter:title" content="简单了解Spring">
 <meta name="twitter:description" content="最近想学习一下spring框架，并把一些知识要点记录一下。">
 
 
@@ -109,7 +109,7 @@
   };
 </script>
 
-  <title> spring学习笔记 | dings503's blog </title>
+  <title> 简单了解Spring | dings503's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -259,7 +259,7 @@
             
             
               
-                spring学习笔记
+                简单了解Spring
               
             
           </h1>
@@ -285,8 +285,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/spring/" itemprop="url" rel="index">
-                    <span itemprop="name">spring</span>
+                  <a href="/categories/Spring学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring学习笔记</span>
                   </a>
                 </span>
 
@@ -366,19 +366,7 @@
 </blockquote>
 <p>加载代码都类似：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ApplicationContext context = new ClassPathXmlApplicationContext(&quot;bean.xml&quot;);</span><br></pre></td></tr></table></figure></p>
 <p>使用FileSystemXmlApplicationContext和使用ClassPathXmlApplicationContext的区别在于：前者在指定的文件系统路径下查找xml文件；而后者是在所有的类路径（包含JAR文件）下查找xml文件。</p>
-<p>Bean的生命周期：</p>
-<ol>
-<li>Spring对bean进行实例化</li>
-<li>Spring将值和bean的引用注入进Bean对应的属性中去</li>
-<li>如果Bean实现了BeanNameAware接口，Spring将Bean的ID传递给setBeanName()接口方法</li>
-<li>如果Bean实现了BeanFactoryAware接口，Spring将调用setBeanFactory()接口方法，将BeanFactory容器实例传入</li>
-<li>如果Bean实现了ApplicationContextAware接口，Spring将调用setApplicationContext()接口方法，将应用上下文的引用传入</li>
-<li>如果Bean实现了BeanPostProcessor接口，Spring将调用它们的postProcessorBeforeInitialization()接口方法</li>
-<li>如果Bean实现了Initialization接口，Spring将调用它们的afterPropertiesSet()接口方法。类似的，如果Bean使用了init-method声明了初始化方法，该方法也会被调用</li>
-<li>如果Bean实现了BeanPostProcessor接口，Spring将调用它们的postProcessorAfterInitalization()方法</li>
-<li>此时此刻，Bean已经准备就绪，可以被应用程序使用了，它们将一直驻留在应用上下文中，直到该应用上下文被销毁</li>
-<li>如果Bean实现了DisposableBean接口，Spring将调用它的destory()接口方法。同样，如果Bean使用destory-method声明了销毁方法，该方法也会被调用</li>
-</ol>
+<p>Bean的生命周期：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1. Spring对bean进行实例化</span><br><span class="line">2. Spring将值和bean的引用注入进Bean对应的属性中去</span><br><span class="line">3. 如果Bean实现了BeanNameAware接口，Spring将Bean的ID传递给setBeanName()接口方法</span><br><span class="line">4. 如果Bean实现了BeanFactoryAware接口，Spring将调用setBeanFactory()接口方法，将BeanFactory容器实例传入</span><br><span class="line">5. 如果Bean实现了ApplicationContextAware接口，Spring将调用setApplicationContext()接口方法，将应用上下文的引用传入</span><br><span class="line">6. 如果Bean实现了BeanPostProcessor接口，Spring将调用它们的postProcessorBeforeInitialization()接口方法</span><br><span class="line">7. 如果Bean实现了Initialization接口，Spring将调用它们的afterPropertiesSet()接口方法。类似的，如果Bean使用了init-method声明了初始化方法，该方法也会被调用</span><br><span class="line">8. 如果Bean实现了BeanPostProcessor接口，Spring将调用它们的postProcessorAfterInitalization()方法</span><br><span class="line">9. 此时此刻，Bean已经准备就绪，可以被应用程序使用了，它们将一直驻留在应用上下文中，直到该应用上下文被销毁</span><br><span class="line">10. 如果Bean实现了DisposableBean接口，Spring将调用它的destory()接口方法。同样，如果Bean使用destory-method声明了销毁方法，该方法也会被调用</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -416,6 +404,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2016/07/24/spring-2/" rel="prev" title="装配Bean">
+                装配Bean <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -430,7 +422,7 @@
     <div class="post-spread">
       
         <div class="ds-share flat" data-thread-key="2016/07/23/spring-1/"
-     data-title="spring学习笔记"
+     data-title="简单了解Spring"
      data-content=""
      data-url="http://yoursite.com/2016/07/23/spring-1/">
   <div class="ds-share-inline">
@@ -460,7 +452,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/07/23/spring-1/"
-           data-title="spring学习笔记" data-url="http://yoursite.com/2016/07/23/spring-1/">
+           data-title="简单了解Spring" data-url="http://yoursite.com/2016/07/23/spring-1/">
       </div>
     
   </div>
@@ -505,7 +497,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
