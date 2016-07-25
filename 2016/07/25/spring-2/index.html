@@ -88,7 +88,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/07/25/spring-2/index.html">
 <meta property="og:site_name" content="dings503's blog">
 <meta property="og:description" content="最近想学习一下spring框架，并把一些知识要点记录一下">
-<meta property="og:updated_time" content="2016-07-25T13:01:46.116Z">
+<meta property="og:updated_time" content="2016-07-25T13:39:56.459Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="装配Bean">
 <meta name="twitter:description" content="最近想学习一下spring框架，并把一些知识要点记录一下">
@@ -339,9 +339,61 @@
 <li>使用一个或多个XML文件作为配置文件</li>
 <li>基于Java注解的配置方式</li>
 </ol>
-<p>一下是一个典型的Spring XML配置文件：</p>
+<p>以下是一个典型的Spring XML配置文件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">	   xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">	   xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans  </span><br><span class="line">           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd&quot;&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
 <p>在XML文件中声明Bean时，Spring配置文件的根元素来源于Spring Bean命名空间所定义的<beans>元素</beans></p>
+<p>在<beans>元素内，可以放置所有的Spring配置信息，包括<bean>元素的声明。</bean></beans></p>
+<p>Spring的核心框架自带了10个命名空间配置：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命名空间</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">aop</td>
+<td>为声明切面以及将@AspectJ注解的类代理为Spring切面提供了配置元素</td>
+</tr>
+<tr>
+<td style="text-align:center">beans</td>
+<td>支持声明Bean和装配Bean，是Spring最核心也是最原始的命名空间</td>
+</tr>
+<tr>
+<td style="text-align:center">context</td>
+<td>为配置Spring应用上下文提供了配置元素，包括自动检测和自动装配Bean，注入非Spring直接管理的对象</td>
+</tr>
+<tr>
+<td style="text-align:center">jee</td>
+<td>提供了与Java EE API的集成，例如：JNDI和EJB</td>
+</tr>
+<tr>
+<td style="text-align:center">jms</td>
+<td>为声明消息驱动的POJO提供了配置元素</td>
+</tr>
+<tr>
+<td style="text-align:center">lang</td>
+<td>支持配置由Groovy、JRuby或BeanShell等脚本实现的Bean</td>
+</tr>
+<tr>
+<td style="text-align:center">mvc</td>
+<td>启用Spring MVC的能力，例如面向注解的控制器、视图控制器和拦截器</td>
+</tr>
+<tr>
+<td style="text-align:center">oxm</td>
+<td>支持Spring的对象到XML映射配置</td>
+</tr>
+<tr>
+<td style="text-align:center">tx</td>
+<td>提供声明式事务配置</td>
+</tr>
+<tr>
+<td style="text-align:center">util</td>
+<td>提供各种各样的工具类元素，包括把集合配置为Bean、支持属性占位符元素</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
