@@ -88,7 +88,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/07/12/basic-Java/index.html">
 <meta property="og:site_name" content="dings503's blog">
 <meta property="og:description" content="写这篇博客是为了复习一下Java语言的重要知识点。工作上用到的是Java，所以很有必要再好好复习一下Java基础。争取每天写一点，做到知识点的回顾，加深印象。">
-<meta property="og:updated_time" content="2016-07-13T14:11:53.739Z">
+<meta property="og:updated_time" content="2016-07-25T12:29:29.767Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java要点">
 <meta name="twitter:description" content="写这篇博客是为了复习一下Java语言的重要知识点。工作上用到的是Java，所以很有必要再好好复习一下Java基础。争取每天写一点，做到知识点的回顾，加深印象。">
@@ -356,7 +356,48 @@
 </ol>
 <p>打印数组a的每一个元素，一个元素占一行。</p>
 <p>for each 循环语句的循环变量将会遍历数组中的每个元素，而不需要使用下标值。</p>
-<h1 id="面向对象方面"><a href="#面向对象方面" class="headerlink" title="面向对象方面"></a>面向对象方面</h1><h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><h1 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h1><h1 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h1><h1 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h1>
+<h1 id="面向对象方面"><a href="#面向对象方面" class="headerlink" title="面向对象方面"></a>面向对象方面</h1><p><strong>类：</strong>是构造对象的模板或蓝图。由类构造对象的过程称为创建类的实例。</p>
+<p><strong>封装：</strong>将数据和行为组合在一个包中，并对对象的使用者隐藏了数据的实现方式。对象中的数据称为实例域，操纵数据的过程称为方法</p>
+<p><strong>对象：</strong>具有状态、行为和标识。这意味着每一个对象都可以拥有内部数据（它们给出了该对象的状态）和方法（它们产生行为），并且每一个对象都可以唯一地与其他对象区分开来，具体说就是每一个对象在内存中都有一个唯一的地址。</p>
+<p>对象之间的关系：<br><strong>依赖</strong>（dependence）：即”uses-a”关系。例如：Order类使用Account类是因为Order对象需要访问Account对象来查看信用状态。在实际编程中应该尽可能地将相互依赖的类减少到最小，也就是让类之间的耦合度最小<br><strong>聚合</strong>(aggregation)：也称为关联。即”has-a”关系例如：一个Order对象包含一些Item对象。聚合关系意味着类A的对象包含类B的对象。<br><strong>继承</strong>（inheritance）：即”is-a”关系，是用于表示特殊与一般的关系。例如RushOrder类由Order类继承而来</p>
+<p><strong>参数传递：</strong><br><strong>按值调用：</strong>表示方法接收的是调用者提供的值<br><strong>按引用调用：</strong>表示方法接收的是调用者提供的变量地址。<br>一个方法可以修改传递引用所对应的变量值，而不能修改传递值调用所对应的变量值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">double precent = 10;</span><br><span class="line">harry.raiseSalary(precent);</span><br><span class="line">public static void raiseSalary(double x) &#123;</span><br><span class="line">    x = 3 * x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以看到，最终precent的值仍为10，而x=30的</p>
+<p>然而，方法的参数有两种类型：</p>
+<ol>
+<li>基本数据类型（数字、布尔值）</li>
+<li>对象引用</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">harry = new Employee();</span><br><span class="line">tripleSalary(harry);</span><br><span class="line">public static void tripleSalary(Employee x)&#123;</span><br><span class="line">    x.raiseSalary(200);</span><br><span class="line">&#125;</span><br><span class="line">public static void raiseSalary(double x)&#123;</span><br><span class="line">    x = 3 *　x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里最终Harry的薪水变为原来的2倍了，它的值发生了改变。</p>
+<p><strong>总结：</strong></p>
+<ol>
+<li>一个方法不能修改一个基本数据类型的参数（即数值型或布尔型）</li>
+<li>一个方法可以改变一个对象参数的状态</li>
+<li>一个方法不能让对象参数引用一个新的对象</li>
+</ol>
+<p><strong>重载：</strong><br>如果多个方法有相同的名字、不同的参数，遍产生了重载。<br>编译器通过用各个方法给出的参数类型与特定方法的调用所使用的值类型进行匹配来挑选出相应的方法。如果找不到匹配的参数或者找到多个匹配的参数，就会产生编译错误。  </p>
+<p><strong>方法的签名：</strong>要完整描述一个方法必须指出方法名以及参数类型，这叫做方法的签名。如：<br>indexOf(int)          indexOf(int,int)        indexOf(String)         indexOf(String,String)<br>返回类型不是方法签名的一部分，也就是说，不能有两个名字相同、参数类型也相同缺返回不同类型值的方法。</p>
+<p><strong>无参数的构造器：</strong><br>如果在编写一个类时没有编写构造器，那么系统就会提供一个无参数构造器。这个构造器就会将所有的实例域设置为默认值。<br>数值型数据设置为0，布尔型数据设置为false，所有对象变量将设置为null。<br>如果类中提供了至少一种构造器，但是没有提供无参数的构造器，则在构造对象时如果没有提供参数就会被视为不合法。<br>仅当类没有提供任何构造器时，系统才会提供一个默认的构造器。</p>
+<p>如果构造器的第一个语句形如：this(…)，这个构造器将调用同一类的另一个构造器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public Employee&#123;</span><br><span class="line">    this(&quot;Employee #&quot; + nextId, s);</span><br><span class="line">    nextId ++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当调用new Employee(100)时，Employee(double)构造器将调用Employee(String,double)构造器</p>
+<p><strong>初始化块：</strong><br>在一个类的声明中，可以包含多个代码块，只要构造对象，这些代码块就会被执行。<br>首先运行初始化块，然后才运行构造器的主体部分。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Employee&#123;</span><br><span class="line">    private int id;</span><br><span class="line">    private String name;</span><br><span class="line">    private double salary;</span><br><span class="line">    //static initialization block</span><br><span class="line">    static&#123;</span><br><span class="line">        id = nextId;</span><br><span class="line">        nextId ++;</span><br><span class="line">    &#125;</span><br><span class="line">    public Employee(String n, double s)&#123;</span><br><span class="line">        name = n;</span><br><span class="line">        salary = s; </span><br><span class="line">    &#125;</span><br><span class="line">    public Employee()&#123;</span><br><span class="line">        name = &quot;&quot;;</span><br><span class="line">        salary = 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用构造器的具体处理步骤：<br>（1）所有数据域被初始化为默认值（0、false、null）<br>（2）按照在类声明中出现的顺序，一次执行所有域初始化语句和初始化块<br>（3）如果构造器第一行调用了第二个构造器，则执行第二个构造器主体<br>（4）执行这个构造器主体</p>
+<p><strong>tips:</strong><br><strong>类设计技巧：</strong>  </p>
+<ol>
+<li>一定要保证数据私有。绝对不要破坏封装性  </li>
+<li>一定要对数据初始化  </li>
+<li>不要在类中使用过多的基本类型  </li>
+<li>不是所有的域都需要独立的域访问器和域更改器  </li>
+<li>将职责过多的类进行分解<br>6.类名和方法名要能够体现它们的职责  </li>
+</ol>
+<p><strong>继承：</strong><br>在子类中可以增加域、方法或覆盖父类的方法，但是不能删除继承的任何域和方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public Manager(String n, double s, int year, int month, int day)&#123;</span><br><span class="line">    super(n,s,year,month,day);</span><br><span class="line">    bonus = 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>super(n,s,year,month,day)是”调用父类Employee中含有n,s,year,month,day参数的构造器”的简写方式。<br>使用super调用构造器的语句必须是子类构造器的第一条语句</p>
+<p>如果子类的构造器没有显式地调用父类的构造器，则将    自动地调用父类默认（没有参数的）构造器。如果父类没有不带参数的构造器，并且在子类的构造器中又没有显式地调用父类的其他构造器，则Java编译器将报告错误。</p>
+<p>java不支持多继承，一个子类只能继承一个父类。但是一个父类可以有多个子类。</p>
+
       
     </div>
     
@@ -586,7 +627,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#参考书："><span class="nav-number">1.</span> <span class="nav-text">参考书：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JDK环境配置"><span class="nav-number">2.</span> <span class="nav-text">JDK环境配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java基本语言"><span class="nav-number">3.</span> <span class="nav-text">Java基本语言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">3.1.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入输出"><span class="nav-number">3.2.</span> <span class="nav-text">输入输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件输入与输出"><span class="nav-number">3.3.</span> <span class="nav-text">文件输入与输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制流程"><span class="nav-number">3.4.</span> <span class="nav-text">控制流程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象方面"><span class="nav-number">4.</span> <span class="nav-text">面向对象方面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常"><span class="nav-number">5.</span> <span class="nav-text">异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IO"><span class="nav-number">6.</span> <span class="nav-text">IO</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#容器"><span class="nav-number">7.</span> <span class="nav-text">容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#线程"><span class="nav-number">8.</span> <span class="nav-text">线程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#参考书："><span class="nav-number">1.</span> <span class="nav-text">参考书：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JDK环境配置"><span class="nav-number">2.</span> <span class="nav-text">JDK环境配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java基本语言"><span class="nav-number">3.</span> <span class="nav-text">Java基本语言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">3.1.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入输出"><span class="nav-number">3.2.</span> <span class="nav-text">输入输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件输入与输出"><span class="nav-number">3.3.</span> <span class="nav-text">文件输入与输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制流程"><span class="nav-number">3.4.</span> <span class="nav-text">控制流程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象方面"><span class="nav-number">4.</span> <span class="nav-text">面向对象方面</span></a></li></ol></div>
             
           </div>
         </section>
