@@ -88,7 +88,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/07/25/spring-2/index.html">
 <meta property="og:site_name" content="dings503's blog">
 <meta property="og:description" content="最近想学习一下spring框架，并把一些知识要点记录一下">
-<meta property="og:updated_time" content="2016-07-25T13:39:56.459Z">
+<meta property="og:updated_time" content="2016-07-28T13:17:44.534Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="装配Bean">
 <meta name="twitter:description" content="最近想学习一下spring框架，并把一些知识要点记录一下">
@@ -394,6 +394,37 @@
 </tr>
 </tbody>
 </table>
+<h3 id="Bean的作用域"><a href="#Bean的作用域" class="headerlink" title="Bean的作用域"></a>Bean的作用域</h3><p>所有的Spring Bean默认是单例。<br>当在Spring中配置<bean>元素时，可以为Bean声明一个作用域,例如：<bean id="ticket" class="com.spring.learn" scope="prototype"></bean></bean></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">作用域</th>
+<th style="text-align:left">定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">singleton</td>
+<td style="text-align:left">在每一个Spring容器中，一个bean定义只有一个对象实例（默认）</td>
+</tr>
+<tr>
+<td style="text-align:center">protopyte</td>
+<td style="text-align:left">允许Bean的定义可被实例化任意次（每次调用都创建一个实例）</td>
+</tr>
+<tr>
+<td style="text-align:center">request</td>
+<td style="text-align:left">在一次HTTP请求中，每个Bean定义对应一个实例。该作用域仅在基于Web的Spring上下文（例如Spring MVC）中才有效</td>
+</tr>
+<tr>
+<td style="text-align:center">session</td>
+<td style="text-align:left">在一个HTTP Session中，每个Bean定义对应一个实例，该作用域仅在基于Web的Spring上下文（例如Spring MVC）中才有效</td>
+</tr>
+<tr>
+<td style="text-align:center">global-session</td>
+<td style="text-align:left">在一个全局HTTP Session中，每个Bean定义对应一个实例。该作用域仅在Portlet上下文中才有效</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -624,7 +655,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#声明Bean"><span class="nav-number">1.</span> <span class="nav-text">声明Bean</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Spring配置"><span class="nav-number">1.1.</span> <span class="nav-text">创建Spring配置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#声明Bean"><span class="nav-number">1.</span> <span class="nav-text">声明Bean</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Spring配置"><span class="nav-number">1.1.</span> <span class="nav-text">创建Spring配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bean的作用域"><span class="nav-number">1.2.</span> <span class="nav-text">Bean的作用域</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
