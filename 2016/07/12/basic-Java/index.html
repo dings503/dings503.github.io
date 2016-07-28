@@ -88,7 +88,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/07/12/basic-Java/index.html">
 <meta property="og:site_name" content="dings503's blog">
 <meta property="og:description" content="写这篇博客是为了复习一下Java语言的重要知识点。工作上用到的是Java，所以很有必要再好好复习一下Java基础。争取每天写一点，做到知识点的回顾，加深印象。">
-<meta property="og:updated_time" content="2016-07-25T12:36:32.672Z">
+<meta property="og:updated_time" content="2016-07-28T13:26:36.646Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java要点">
 <meta name="twitter:description" content="写这篇博客是为了复习一下Java语言的重要知识点。工作上用到的是Java，所以很有必要再好好复习一下Java基础。争取每天写一点，做到知识点的回顾，加深印象。">
@@ -382,7 +382,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public Employee&#123;</span><br><span class="line">    this(&quot;Employee #&quot; + nextId, s);</span><br><span class="line">    nextId ++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>当调用new Employee(100)时，Employee(double)构造器将调用Employee(String,double)构造器</p>
 <p><strong>初始化块：</strong><br>在一个类的声明中，可以包含多个代码块，只要构造对象，这些代码块就会被执行。<br>首先运行初始化块，然后才运行构造器的主体部分。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Employee&#123;</span><br><span class="line">    private int id;</span><br><span class="line">    private String name;</span><br><span class="line">    private double salary;</span><br><span class="line">    //static initialization block</span><br><span class="line">    static&#123;</span><br><span class="line">        id = nextId;</span><br><span class="line">        nextId ++;</span><br><span class="line">    &#125;</span><br><span class="line">    public Employee(String n, double s)&#123;</span><br><span class="line">        name = n;</span><br><span class="line">        salary = s; </span><br><span class="line">    &#125;</span><br><span class="line">    public Employee()&#123;</span><br><span class="line">        name = &quot;&quot;;</span><br><span class="line">        salary = 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Employee&#123;</span><br><span class="line">    private int id;</span><br><span class="line">    private String name;</span><br><span class="line">    private double salary;</span><br><span class="line">    //static initialization block</span><br><span class="line">    static&#123;</span><br><span class="line">        id = nextId;</span><br><span class="line">        nextId ++;</span><br><span class="line">    &#125;</span><br><span class="line">    public Employee(String n, double s)&#123;</span><br><span class="line">        name = n;</span><br><span class="line">        salary = s;</span><br><span class="line">    &#125;</span><br><span class="line">    public Employee()&#123;</span><br><span class="line">        name = &quot;&quot;;</span><br><span class="line">        salary = 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>调用构造器的具体处理步骤：<br>（1）所有数据域被初始化为默认值（0、false、null）<br>（2）按照在类声明中出现的顺序，一次执行所有域初始化语句和初始化块<br>（3）如果构造器第一行调用了第二个构造器，则执行第二个构造器主体<br>（4）执行这个构造器主体</p>
 <p><strong>tips:</strong><br><strong>类设计技巧：</strong>  </p>
 <ol>
@@ -398,6 +398,16 @@
 <p>super(n,s,year,month,day)是”调用父类Employee中含有n,s,year,month,day参数的构造器”的简写方式。<br>使用super调用构造器的语句必须是子类构造器的第一条语句</p>
 <p>如果子类的构造器没有显式地调用父类的构造器，则将    自动地调用父类默认（没有参数的）构造器。如果父类没有不带参数的构造器，并且在子类的构造器中又没有显式地调用父类的其他构造器，则Java编译器将报告错误。</p>
 <p>java不支持多继承，一个子类只能继承一个父类。但是一个父类可以有多个子类。</p>
+<p>对象方法调用的执行过程：<br>（1）编译器查看对象的声明类型和方法名：<br>假设调用x.f(param)，且隐式参数x声明为C类的对象。需要注意的是：有可能存在多个名字为f，参数类型不一样的方法，如f(int)和f(String)。此时编译器会一一列举所有C类中名为f的方法和其父类中访问属性为public且名为f的方法<br>（2）接下来，编译器会查看调用方法时提供的参数类型。如果在所有名为f的方法中    存在一个与提供的参数类型完全匹配，就选择这个方法。这个过程被称为重载解析（overloading resolution）,如果没有找到匹配的方法，就会报告一个错误<br>（3）如果是private方法、static方法、final方法或者构造器，那么编译器将可以准确知道调用哪个方法，将这种调用方式称为静态绑定。与此对应的是，调用的方法依赖于隐式参数的实际类型，并且在运行时实现动态绑定。<br>（4）当程序运行，并且采用动态绑定调用方法时，虚拟机一定调用与x所引用对象的实际类型最合适的那个类的方法。</p>
+<p>每次调用方法都要进行搜索，时间开销相当大，因此，虚拟机预先为每个类创建了一个方法表（method table），其中列出了所有方法的签名和实际调用的方法。这样一来，在实际调用方法时，虚拟机只需要查询一下方法表就可以了。</p>
+<p>在覆盖一个方法时，子类方法不能低于父类方法的可见性。特别是父类方法为public时，子类方法一定是public</p>
+<p>当一个类用final修饰时，就不允许被继承了，当一个类中的某个方法被final修饰了，子类就不能覆盖这个方法了。    </p>
+<p>对象的强制类型转换：</p>
+<ol>
+<li>只能在继承层次内进行类型转换</li>
+<li>在将超类转换成子类之前，应该使用instanceof进行检查。<br>instanceof运算符是用来在运行时指出对象是否是特定类的一个实例，它会根据结果返回一个布尔值，是-true，否-false</li>
+</ol>
+<p>抽象类：用abstract关键字修饰的类。<br>抽象类中至少有一个抽象方法，可以存在非抽象方法，即可以包含具体数据和具体方法。抽象方法在抽象类中充当占位的角色，它们的具体实现在子类中。抽象类不能被实例化。</p>
 
       
     </div>
