@@ -82,16 +82,16 @@
 
 
 
-<meta name="description" content="最近想学习一下spring框架，并把一些知识要点记录一下">
+<meta name="description" content="创建应用对象之间协作关系的行为成为装配（wiring）,这也是依赖注入的本质。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自动化装配Bean">
 <meta property="og:url" content="http://yoursite.com/2016/07/25/spring-2/index.html">
 <meta property="og:site_name" content="dings503's blog">
-<meta property="og:description" content="最近想学习一下spring框架，并把一些知识要点记录一下">
-<meta property="og:updated_time" content="2016-07-31T12:57:16.439Z">
+<meta property="og:description" content="创建应用对象之间协作关系的行为成为装配（wiring）,这也是依赖注入的本质。">
+<meta property="og:updated_time" content="2016-07-31T14:04:01.582Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自动化装配Bean">
-<meta name="twitter:description" content="最近想学习一下spring框架，并把一些知识要点记录一下">
+<meta name="twitter:description" content="创建应用对象之间协作关系的行为成为装配（wiring）,这也是依赖注入的本质。">
 
 
 
@@ -330,17 +330,16 @@
       
 
       
-        <p>最近想学习一下spring框架，并把一些知识要点记录一下</p>
+        <p>创建应用对象之间协作关系的行为成为<strong>装配（wiring）</strong>,这也是依赖注入的本质。</p>
 <a id="more"></a>
 <p>在Spring中，对象无需自己负责查找或创建与其关联的其他对象。相反，容器负责把需要相互协作的对象引用赋予各个对象。</p>
-<p>创建应用对象之间协作关系的行为成为<strong>装配（wiring）</strong>,这也是依赖注入的本质。</p>
 <p>Spring配置的可选方案有三种：</p>
 <ol>
 <li>隐式的Bean发现机制和自动装配</li>
 <li>在Java中进行显示装配</li>
 <li>在XML中进行显示配置</li>
 </ol>
-<h2 id="自动化装配bean"><a href="#自动化装配bean" class="headerlink" title="自动化装配bean"></a>自动化装配bean</h2><p>Spring从两个角度实现自动化装配：</p>
+<p>Spring从两个角度实现自动化装配：</p>
 <ol>
 <li><strong>组件扫描（component scanning）：</strong>Spring会自动发现应用上下文中所创建的bean</li>
 <li><strong>自动装配（autowiring）：</strong>Spring自动满足bean之间的依赖</li>
@@ -401,6 +400,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/31/spring-3/" rel="prev" title="通过Java代码装配bean">
+                通过Java代码装配bean <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -491,7 +494,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -595,7 +598,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#自动化装配bean"><span class="nav-number">1.</span> <span class="nav-text">自动化装配bean</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建可被发现的bean"><span class="nav-number">1.1.</span> <span class="nav-text">创建可被发现的bean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为组件扫描的bean命名"><span class="nav-number">1.2.</span> <span class="nav-text">为组件扫描的bean命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置组件扫描的基础包"><span class="nav-number">1.3.</span> <span class="nav-text">设置组件扫描的基础包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过为bean添加注解实现自动装配"><span class="nav-number">1.4.</span> <span class="nav-text">通过为bean添加注解实现自动装配</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建可被发现的bean"><span class="nav-number">1.</span> <span class="nav-text">创建可被发现的bean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为组件扫描的bean命名"><span class="nav-number">2.</span> <span class="nav-text">为组件扫描的bean命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置组件扫描的基础包"><span class="nav-number">3.</span> <span class="nav-text">设置组件扫描的基础包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过为bean添加注解实现自动装配"><span class="nav-number">4.</span> <span class="nav-text">通过为bean添加注解实现自动装配</span></a></li></ol></div>
             
           </div>
         </section>
