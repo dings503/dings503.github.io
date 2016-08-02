@@ -64,7 +64,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="spring," />
+  <meta name="keywords" content="SVN," />
 
 
 
@@ -82,16 +82,20 @@
 
 
 
-<meta name="description" content="在Spring进行显示配置时，有两种可选方案：Java和XML。但JavaConfig是更好的方案，因为它更为强大、类型安全并且对重构友好。">
+<meta name="description" content="SVN是Subversion的简称，是一个开发源代码的版本控制系统。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="通过Java代码装配bean">
-<meta property="og:url" content="http://yoursite.com/2016/07/31/spring-3/index.html">
+<meta property="og:title" content="SVN的简单使用">
+<meta property="og:url" content="http://yoursite.com/2016/08/02/SVN/index.html">
 <meta property="og:site_name" content="dings503's blog">
-<meta property="og:description" content="在Spring进行显示配置时，有两种可选方案：Java和XML。但JavaConfig是更好的方案，因为它更为强大、类型安全并且对重构友好。">
-<meta property="og:updated_time" content="2016-07-31T14:52:28.658Z">
+<meta property="og:description" content="SVN是Subversion的简称，是一个开发源代码的版本控制系统。">
+<meta property="og:image" content="https://raw.githubusercontent.com/dings503/dings503.github.io/master/img/checkout.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/dings503/dings503.github.io/master/img/preferences.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/dings503/dings503.github.io/master/img/synchronize.png">
+<meta property="og:updated_time" content="2016-08-02T11:34:44.022Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="通过Java代码装配bean">
-<meta name="twitter:description" content="在Spring进行显示配置时，有两种可选方案：Java和XML。但JavaConfig是更好的方案，因为它更为强大、类型安全并且对重构友好。">
+<meta name="twitter:title" content="SVN的简单使用">
+<meta name="twitter:description" content="SVN是Subversion的简称，是一个开发源代码的版本控制系统。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/dings503/dings503.github.io/master/img/checkout.png">
 
 
 
@@ -109,7 +113,7 @@
   };
 </script>
 
-  <title> 通过Java代码装配bean | dings503's blog </title>
+  <title> SVN的简单使用 | dings503's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -259,7 +263,7 @@
             
             
               
-                通过Java代码装配bean
+                SVN的简单使用
               
             
           </h1>
@@ -271,8 +275,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-31T21:13:50+08:00" content="2016-07-31">
-              2016-07-31
+            <time itemprop="dateCreated" datetime="2016-08-02T19:20:12+08:00" content="2016-08-02">
+              2016-08-02
             </time>
           </span>
 
@@ -285,8 +289,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Spring学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">Spring学习笔记</span>
+                  <a href="/categories/学到的新技术/" itemprop="url" rel="index">
+                    <span itemprop="name">学到的新技术</span>
                   </a>
                 </span>
 
@@ -301,8 +305,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/31/spring-3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/31/spring-3/" itemprop="commentsCount"></span>
+                <a href="/2016/08/02/SVN/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/02/SVN/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -330,21 +334,33 @@
       
 
       
-        <p>在Spring进行显示配置时，有两种可选方案：Java和XML。<br>但JavaConfig是更好的方案，因为它更为强大、类型安全并且对重构友好。</p>
+        <p>SVN是Subversion的简称，是一个开发源代码的版本控制系统。</p>
 <a id="more"></a>
-<p>尽管在很多场景下可以通过组件扫描和自动装配实现Spring的自动化配置，但是有时候这种方案是行不通的。例如要将第三方库中的组件装配到应用中，是没有办法在它的类上添加@Component和@Autowired注解的。这种情况下必须采用显示装配的方式。  </p>
-<p>在Spring进行显示配置时，有两种可选方案：Java和XML。<br>但JavaConfig是更好的方案，因为它更为强大、类型安全并且对重构友好。</p>
-<p>JavaConfig是配置代码，意味着它不应该包含任何业务逻辑，JavaConfig也不应该侵入到业务逻辑代码中去。通常会将JavaConfig放到单独的包中。</p>
-<h3 id="创建配置类"><a href="#创建配置类" class="headerlink" title="创建配置类"></a>创建配置类</h3><p>创建JavaConfig类的关键在于为其添加@Configuration注解，该注解表明这个类是一个配置类，该类应该包含Spring应用上下文中如何创建bean的细节。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">package com.dingsheng.spring;</span><br><span class="line"></span><br><span class="line">import org.springframework.context.annotation.ComponentScan;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line">@Configuration</span><br><span class="line">public class CDPlayerConfig &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>此处主要关注显示装配，因此删除了@ComponentScan注解</p>
-<h3 id="声明简单的bean"><a href="#声明简单的bean" class="headerlink" title="声明简单的bean"></a>声明简单的bean</h3><p>要在JavaConfig中声明bean，需要编写一个创建所需类型的实例方法，然后给这个方法添加@Bean注解，@Bean注解会高祖Spring这个方法将会返回一个对象，该对象要注册为Spring应用上下文中的bean，方法体中包含了最终产生bean实例的逻辑。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">public CompactDisc sgtPeppers() &#123;</span><br><span class="line">    return new SgtPeppers();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>可以使用@Bean(name=”sgtPeppers-name”)来进行自定义bean的ID。</p>
-<h3 id="借助JavaConfig实现注入"><a href="#借助JavaConfig实现注入" class="headerlink" title="借助JavaConfig实现注入"></a>借助JavaConfig实现注入</h3><p>在JavaConfig中装配bean的最简单方式就是引用创建bean的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">public CDPlayer cdPlayer &#123;</span><br><span class="line">    return new CDPlayer(sgtPeppers());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这个方法也使用了@Bean注解，表明这个方法会创建一个bean实例并将其注册到Spring应用上下文中，所创建的bean ID与方法同名。<br>这里的sgtPeppers()方法上添加了@bean注解，Spring将会拦截所有对它的调用，并确保直接返回该方法所创建的bean，而不是每次都对其进行实际的调用。</p>
-<p>默认情况下，Spring中的bean都是单例的，并没有必要为第二个CDPlayer bean创建完全相同的SgtPeppers实例。所以，Spring会拦截对sgtPeppers()的调用并确保返回的是Spring所创建的bean，也就是Spring本身在调用sgtPeppers()时所创建的CompactDisc bean。因此，两个CDPlayer bean会得到相同的SgtP实例。</p>
-<p>还有另一种方式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Bean</span><br><span class="line">public CDPlayer cdPlayer(CompactDisc compactDisc) &#123;</span><br><span class="line">    return new CDPlayer(compactDisc);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在这里，cdPlayer()方法请求一个CompactDisc作为参数。当Spring调用cdPlayer()创建CDPlayer bean的时候，它会自动装配一个CompactDisc到配置方法中。然后，方法体就可以按照合适的方式来使用它。借助这种方法，cdPlayer()方法也能将CompactDisc注入到CDPlayer的构造器中，而且不用明确引用CompactDisc的@Bean方法</p>
-<p>这种方式不会要求将CompactDisc声明到同一个配置类中，甚至没有要求CompactDisc必须要在Javaconfig中声明，实际上它可以通过组件扫描功能自动发现或者通过XML来进行配置。可以将配置分散到多个配置类、XML文件以及自动扫描和装配bean之中，只要功能健全即可。不管CompactDisc是采用什么方式创建出来的，Spring都会将其传入到配置方法中，并用来创建CDPlayer bean。</p>
+<p>公司对项目的管理是通过SVN来实现的。</p>
+<p>SVN工作流程：</p>
+<ol>
+<li>从服务器上下载项目组最新的代码</li>
+<li>进入自己负责的模块，进行coding，可以随时提交完成的代码。</li>
+<li>下班前，将自己的分支合并到服务器主支上，进度保存到服务器上。</li>
+</ol>
+<p>首先需要下载客户端版的Tortoise SVN软件，输入用户名和密码与服务器端连接成功后，小乌龟就能从服务器上下载最新的代码和文档到本地。</p>
+<p>安装成功后，鼠标右键会出现SVN Checkout和TortoiseSVN选项，点击SVN Checkout，会出现下面的界面，输入URL地址，就能下载文档和代码。</p>
+<p><img src="https://raw.githubusercontent.com/dings503/dings503.github.io/master/img/checkout.png" alt="checkout"></p>
+<p>下载文档和代码后，右键会出现SVN Update和SVN Commit两个选项，前者是更新到最新版本的，后者是向服务器上提交。</p>
+<p>在对某些文件进行修改时，要先更新到最新版本，然后右键–&gt;Tortoise SVN–&gt;Get Lock，然后进行修改。修改完成后右键SVN Commit。</p>
+<p>添加文件时，先新建文件，然后右键–&gt;Tortoise SVN–&gt;add,最后SVN Commit。</p>
+<p>在eclipse上安装SVN插件：</p>
+<p>help–&gt;install new software–&gt;Work with里填上：subclipse - <a href="http://subclipse.tigris.org/update_1.10.x" target="_blank" rel="external">http://subclipse.tigris.org/update_1.10.x</a>, 然后一路next，最后finish。eclipse要自己下载安装，所以可能会有点慢。</p>
+<p>注意查看一下小乌龟是什么版本的，有可能存在版本冲突的问题，如果Tortoise SVN是1.8x的，在Work with里填上：subclipse - <a href="http://subclipse.tigris.org/update_1.10.x" target="_blank" rel="external">http://subclipse.tigris.org/update_1.10.x</a>, 如果是1.7x的，在Work with里填上：subclipse - <a href="http://subclipse.tigris.org/update_1.8.x" target="_blank" rel="external">http://subclipse.tigris.org/update_1.8.x</a><br>最后还得设置一下选项：Window–&gt;preferences–&gt;Team–&gt;SVN–&gt;SVN接口–&gt;选择SVN Kit</p>
+<p><img src="https://raw.githubusercontent.com/dings503/dings503.github.io/master/img/preferences.png" alt="preferences"></p>
+<p>安装完成后可以将服务器中的代码导入到eclipse中：<br>右键–&gt;import–&gt;从SVN中检出项目–&gt;输入资源库的URL，然后一路next，最后finish。</p>
+<p>导入完成后，右键项目，会出现Team选项，这就是SVN插件的选项集中地。</p>
+<p>每次提交或更新前进行一下操作：<br>右键–&gt;Team–&gt;与资源库同步</p>
+<p><img src="https://raw.githubusercontent.com/dings503/dings503.github.io/master/img/synchronize.png" alt="synchronize"></p>
+<p>向左的箭头的数字表示服务器上项目与本地项目相比有多少处变动，如果出现大于0的数字，表明可以进行更新，向右的箭头的数字2表明，本地项目在2处文件中有修改，可以提交。最后红色的双向箭头表示服务器上项目与本地项目有多少处冲突，在更新之前必须先解决冲突项，然后才能进行更新或提交操作。</p>
+<p>提交：右键–&gt;Team–&gt;提交<br>更新：右键–&gt;Team–&gt;更新</p>
+<p>当想要恢复到某个版本时，可以右键–&gt;Team–&gt;显示资源历史记录，选中想要恢复的版本，右键，选择获取内容即可。</p>
+<p>更新最好整个项目都要更新，提交的时候如果修改只是几个文件，最好按文件为单位提交。提交的时候，可能还会要求填写提交描述。</p>
 
       
     </div>
@@ -365,7 +381,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/spring/" rel="tag">#spring</a>
+            <a href="/tags/SVN/" rel="tag">#SVN</a>
           
         </div>
       
@@ -374,17 +390,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/25/spring-2/" rel="next" title="自动化装配Bean">
-                <i class="fa fa-chevron-left"></i> 自动化装配Bean
+              <a href="/2016/07/31/spring-3/" rel="next" title="通过Java代码装配bean">
+                <i class="fa fa-chevron-left"></i> 通过Java代码装配bean
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/02/SVN/" rel="prev" title="SVN的简单使用">
-                SVN的简单使用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -399,10 +411,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/07/31/spring-3/"
-     data-title="通过Java代码装配bean"
+        <div class="ds-share flat" data-thread-key="2016/08/02/SVN/"
+     data-title="SVN的简单使用"
      data-content=""
-     data-url="http://yoursite.com/2016/07/31/spring-3/">
+     data-url="http://yoursite.com/2016/08/02/SVN/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -429,8 +441,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/31/spring-3/"
-           data-title="通过Java代码装配bean" data-url="http://yoursite.com/2016/07/31/spring-3/">
+      <div class="ds-thread" data-thread-key="2016/08/02/SVN/"
+           data-title="SVN的简单使用" data-url="http://yoursite.com/2016/08/02/SVN/">
       </div>
     
   </div>
@@ -579,7 +591,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建配置类"><span class="nav-number">1.</span> <span class="nav-text">创建配置类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#声明简单的bean"><span class="nav-number">2.</span> <span class="nav-text">声明简单的bean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#借助JavaConfig实现注入"><span class="nav-number">3.</span> <span class="nav-text">借助JavaConfig实现注入</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
