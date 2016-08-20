@@ -88,7 +88,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/08/20/log/index.html">
 <meta property="og:site_name" content="dings503's blog">
 <meta property="og:description" content="在工作中经常会遇到程序的运行问题，许多问题可以通过查看日志定位到。">
-<meta property="og:updated_time" content="2016-08-20T13:40:35.414Z">
+<meta property="og:updated_time" content="2016-08-20T13:45:10.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="查看日志的方法">
 <meta name="twitter:description" content="在工作中经常会遇到程序的运行问题，许多问题可以通过查看日志定位到。">
@@ -320,8 +320,8 @@
 <p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">less aaa.log</span><br><span class="line">shift + f</span><br><span class="line">运行代码</span><br><span class="line">Ctrl + c</span><br><span class="line">?value</span><br></pre></td></tr></table></figure></p>
 <p>注意：？和value之间没有空格。<br>查询到关键字之后，按gg返回文件顶部，按shift+g返回文件底部，按n，从当前位置向上查询关键字<br>按q退出</p>
 <p>2.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -n +行数 +日志文件名 &gt; +新建的文件名</span><br></pre></td></tr></table></figure></p>
-<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -n 1000 protal.log &gt; zzz..txt</span><br></pre></td></tr></table></figure></p>
-<p>先运行程序，然后vi zzz.txt，就能查询存放在zzz文件中的portal.log日志文件的倒数1000行日志代码<br>按ESC + :q退出。</p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -n 1000 aaa.log &gt; zzz..txt</span><br></pre></td></tr></table></figure></p>
+<p>先运行程序，然后vi zzz.txt，就能查询存放在zzz文件中的aaa.log日志文件的倒数1000行日志代码<br>按ESC + :q退出。</p>
 <p>rm zzz — 删除zzz文件</p>
 
       
