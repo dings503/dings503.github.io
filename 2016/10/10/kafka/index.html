@@ -88,7 +88,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/10/10/kafka/index.html">
 <meta property="og:site_name" content="dings503's blog">
 <meta property="og:description" content="Kafka是一种高吞吐量的分布式发布订阅消息系统。它是一个分布式的、可分区的、可复制的消息系统。应用很广泛。">
-<meta property="og:updated_time" content="2016-10-10T13:45:06.040Z">
+<meta property="og:updated_time" content="2016-10-10T13:57:32.058Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kafka学习">
 <meta name="twitter:description" content="Kafka是一种高吞吐量的分布式发布订阅消息系统。它是一个分布式的、可分区的、可复制的消息系统。应用很广泛。">
@@ -332,32 +332,32 @@
       
         <p>Kafka是一种高吞吐量的分布式发布订阅消息系统。它是一个分布式的、可分区的、可复制的消息系统。应用很广泛。</p>
 <a id="more"></a>
-<h3 id="1、登录："><a href="#1、登录：" class="headerlink" title="1、登录："></a>1、登录：</h3><p>ssh登录kafka服务器，进入目录：  </p>
+<h3 id="登录："><a href="#登录：" class="headerlink" title="登录："></a>登录：</h3><p>ssh登录kafka服务器，进入目录：  </p>
 <blockquote>
 <p>/home/lc/kafka_2.9.2-0.8.1</p>
 </blockquote>
-<h3 id="2、创建topic"><a href="#2、创建topic" class="headerlink" title="2、创建topic"></a>2、创建topic</h3><blockquote>
+<h3 id="创建topic"><a href="#创建topic" class="headerlink" title="创建topic"></a>创建topic</h3><blockquote>
 <p>bin/kafka-topics.sh –create –topic UploadReadingTime –zookeeper 192.168.1.10:6830 –partitions 8 –replication-factor 1  </p>
 </blockquote>
 <p>其中：UploadReadingTime为新创建的主题名<br>     10.211.95.114:6830为zk的地址</p>
-<h3 id="3、创建生产者producer（进入bin目录下）"><a href="#3、创建生产者producer（进入bin目录下）" class="headerlink" title="3、创建生产者producer（进入bin目录下）"></a>3、创建生产者producer（进入bin目录下）</h3><blockquote>
+<h3 id="创建生产者producer（进入bin目录下）"><a href="#创建生产者producer（进入bin目录下）" class="headerlink" title="创建生产者producer（进入bin目录下）"></a>创建生产者producer（进入bin目录下）</h3><blockquote>
 <p>./kafka-console-producer.sh –broker-list 192.168.2.10:5811 –topic UploadReadingTime  </p>
 </blockquote>
 <p>其中：192.168.2.10:5811为kafka地址<br>     UploadReadingTime为主题名</p>
-<h3 id="4、创建消费者consumer（进入bin目录下）"><a href="#4、创建消费者consumer（进入bin目录下）" class="headerlink" title="4、创建消费者consumer（进入bin目录下）"></a>4、创建消费者consumer（进入bin目录下）</h3><blockquote>
+<h3 id="创建消费者consumer（进入bin目录下）"><a href="#创建消费者consumer（进入bin目录下）" class="headerlink" title="创建消费者consumer（进入bin目录下）"></a>创建消费者consumer（进入bin目录下）</h3><blockquote>
 <p>./kafka-console-consumer.sh -zookeeper 192.168.1.10:6830 –topic UploadReadingTime</p>
 </blockquote>
 <p>其中：192.168.1.10:6830为zookeeper地址<br>     UploadReadingTime为主题名</p>
 <p>创建完生产者和消费者之后，发送kafka的MQ消息，能够在消费者界面查看到传过来的kafka消息</p>
-<h3 id="4、kafka的配置文件目录"><a href="#4、kafka的配置文件目录" class="headerlink" title="4、kafka的配置文件目录"></a>4、kafka的配置文件目录</h3><blockquote>
+<h3 id="kafka的配置文件目录"><a href="#kafka的配置文件目录" class="headerlink" title="kafka的配置文件目录"></a>kafka的配置文件目录</h3><blockquote>
 <p>kafka_2.9.2-0.8.1/config/server.properties</p>
 </blockquote>
-<h3 id="5、ZK服务器："><a href="#5、ZK服务器：" class="headerlink" title="5、ZK服务器："></a>5、ZK服务器：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/home/ds/zk/zk/bin&gt;  </span><br><span class="line"></span><br><span class="line">./zk</span><br><span class="line"></span><br><span class="line">./zkCli.sh -server 192.168.1.10:6830</span><br><span class="line"></span><br><span class="line">ls /brokers/topics 　　　　---查看topic</span><br></pre></td></tr></table></figure>
-<h3 id="6、client服务器："><a href="#6、client服务器：" class="headerlink" title="6、client服务器："></a>6、client服务器：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class/</span><br><span class="line"></span><br><span class="line">vi openas.cluster.xml</span><br><span class="line"></span><br><span class="line">portal/mqconfig/</span><br><span class="line"></span><br><span class="line">vi kafka-producer.properties</span><br><span class="line"></span><br><span class="line">vi /etc/hosts</span><br></pre></td></tr></table></figure>
-<h4 id="7、查看kafka进程"><a href="#7、查看kafka进程" class="headerlink" title="7、查看kafka进程"></a>7、查看kafka进程</h4><blockquote>
+<h3 id="ZK服务器："><a href="#ZK服务器：" class="headerlink" title="ZK服务器："></a>ZK服务器：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/home/ds/zk/zk/bin&gt;  </span><br><span class="line"></span><br><span class="line">./zk</span><br><span class="line"></span><br><span class="line">./zkCli.sh -server 192.168.1.10:6830</span><br><span class="line"></span><br><span class="line">ls /brokers/topics 　　　　---查看topic</span><br></pre></td></tr></table></figure>
+<h3 id="client服务器："><a href="#client服务器：" class="headerlink" title="client服务器："></a>client服务器：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class/</span><br><span class="line"></span><br><span class="line">vi openas.cluster.xml</span><br><span class="line"></span><br><span class="line">portal/mqconfig/</span><br><span class="line"></span><br><span class="line">vi kafka-producer.properties</span><br><span class="line"></span><br><span class="line">vi /etc/hosts</span><br></pre></td></tr></table></figure>
+<h4 id="查看kafka进程"><a href="#查看kafka进程" class="headerlink" title="查看kafka进程"></a>查看kafka进程</h4><blockquote>
 <p>ps -ef | grep kafka</p>
 </blockquote>
-<h3 id="8、停止kafka进程"><a href="#8、停止kafka进程" class="headerlink" title="8、停止kafka进程"></a>8、停止kafka进程</h3><blockquote>
+<h3 id="停止kafka进程"><a href="#停止kafka进程" class="headerlink" title="停止kafka进程"></a>停止kafka进程</h3><blockquote>
 <p>kill -9 进程号</p>
 </blockquote>
 
@@ -590,7 +590,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、登录："><span class="nav-number">1.</span> <span class="nav-text">1、登录：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、创建topic"><span class="nav-number">2.</span> <span class="nav-text">2、创建topic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、创建生产者producer（进入bin目录下）"><span class="nav-number">3.</span> <span class="nav-text">3、创建生产者producer（进入bin目录下）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、创建消费者consumer（进入bin目录下）"><span class="nav-number">4.</span> <span class="nav-text">4、创建消费者consumer（进入bin目录下）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、kafka的配置文件目录"><span class="nav-number">5.</span> <span class="nav-text">4、kafka的配置文件目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、ZK服务器："><span class="nav-number">6.</span> <span class="nav-text">5、ZK服务器：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、client服务器："><span class="nav-number">7.</span> <span class="nav-text">6、client服务器：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7、查看kafka进程"><span class="nav-number">7.1.</span> <span class="nav-text">7、查看kafka进程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8、停止kafka进程"><span class="nav-number">8.</span> <span class="nav-text">8、停止kafka进程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#登录："><span class="nav-number">1.</span> <span class="nav-text">登录：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建topic"><span class="nav-number">2.</span> <span class="nav-text">创建topic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建生产者producer（进入bin目录下）"><span class="nav-number">3.</span> <span class="nav-text">创建生产者producer（进入bin目录下）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建消费者consumer（进入bin目录下）"><span class="nav-number">4.</span> <span class="nav-text">创建消费者consumer（进入bin目录下）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kafka的配置文件目录"><span class="nav-number">5.</span> <span class="nav-text">kafka的配置文件目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ZK服务器："><span class="nav-number">6.</span> <span class="nav-text">ZK服务器：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#client服务器："><span class="nav-number">7.</span> <span class="nav-text">client服务器：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看kafka进程"><span class="nav-number">7.1.</span> <span class="nav-text">查看kafka进程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#停止kafka进程"><span class="nav-number">8.</span> <span class="nav-text">停止kafka进程</span></a></li></ol></div>
             
           </div>
         </section>
