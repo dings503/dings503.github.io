@@ -330,38 +330,12 @@
 
       
         
-          
-            <h3 id="Maven简介"><a href="#Maven简介" class="headerlink" title="Maven简介"></a>Maven简介</h3><p>Maven是一个优秀的项目管理和构建自动化工具，尤其能够非常方便的管理项目中的jar包。</p>
-<h3 id="Maven的安装"><a href="#Maven的安装" class="headerlink" title="Maven的安装"></a>Maven的安装</h3><ol>
-<li><p><a href="http://maven.apache.org/" target="_blank" rel="external">下载地址</a>，下载后点击安装即可。</p>
-</li>
-<li><p>配置环境变量</p>
-<p>环境变量的配置与jdk的配置类似。</p>
-<p>新建环境变量MAVEN_HOME：maven的根目录，然后在Path环境变量中加入：%MAVEN_HOME%\bin;即可。</p>
-<p>检验Maven是否安装成功：cmd–&gt;mvn -v     看到Maven版本信息即安装成功</p>
-</li>
-<li><p>设置setting,xml文件，配置本地仓库。</p>
-<p>在Maven安装文件的conf目录下有一个setting.xml文件，可以修改localRepository结点值为本地仓库地址，</p>
-<p>如：</p>
-<blockquote>
-<localrepository>D:\software\apache-maven-3.3.9\repository</localrepository>
-
-</blockquote>
-<p>​</p>
-<p>为了更快的下载jar包，可以把mirror节点设为国内地址，国内Maven镜像站点<a href="http://maven.oschina.net/" target="_blank" rel="external">OSC Maven</a>好像已经关闭了，可以使用阿里云Maven仓库地址：<a href="http://maven.aliyun.com/nexus/#view-repositories;public~browsestorage" target="_blank" rel="external">http://maven.aliyun.com/nexus/#view-repositories;public~browsestorage</a>，修改mirror节点如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-aliyun<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>*<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus aliyun<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url</span>&gt;</span>&gt;http://maven.aliyun.com/nexus/content/groups/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><strong>PS:其他想要依赖的包，对应的dependency可以在这个网站里找：</strong> </p>
-<p><a href="http://mvnrepository.com/" target="_blank" rel="external">http://mvnrepository.com/</a>或者<a href="http://maven.aliyun.com/nexus/?spm=5176.100239.blogcont28591.24.i0VfQN#welcome" target="_blank" rel="external">http://maven.aliyun.com/nexus/?spm=5176.100239.blogcont28591.24.i0VfQN#welcome</a></p>
-</li>
-<li><p>eclipse上安装maven插件</p>
-<p>Help–&gt;Eclipse Marketplace，然后输入maven，install，重启eclipse即可</p>
-<p>​</p>
-<p><img src="D:\Hexo\source\img\eclipse_maven.png" alt="eclipse_maven"></p>
-<p>​</p>
-</li>
-</ol>
-
-          
+          <h3 id="Maven简介"><a href="#Maven简介" class="headerlink" title="Maven简介"></a>Maven简介</h3><p>Maven是一个优秀的项目管理和构建自动化工具，尤其能够非常方便的管理项目中的jar包。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/29/Maven/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
