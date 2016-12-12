@@ -88,7 +88,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/07/12/log4j/index.html">
 <meta property="og:site_name" content="dings503's blog">
 <meta property="og:description" content="log4j是用java写的优秀日志工具包。">
-<meta property="og:updated_time" content="2016-07-12T13:59:50.190Z">
+<meta property="og:updated_time" content="2016-12-12T14:56:37.987Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="log4j日志工具包">
 <meta name="twitter:description" content="log4j是用java写的优秀日志工具包。">
@@ -340,7 +340,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">log4j.rootLogger = DEBUG, A1</span><br><span class="line">log4j.appender.A1 = org.apache.log4j.ConsoleAppender</span><br><span class="line">log4j.appender.A1.layout = org.apache.log4j.PatternLayout</span><br><span class="line">log4j.appender.A1.layout.ConversionPattern = %-4r [%t] %-5p %c %x - %m%n</span><br></pre></td></tr></table></figure>
 <p>相关说明：</p>
 <blockquote>
-<p>定义了一个根记录器及其级别：   DEBUG&gt;INFO&gt;WARN&gt;ERROR&gt;FATAL。</p>
+<p>定义了一个根记录器及其级别：   DEBUG&lt;INFO&lt;WARN&lt;ERROR&lt;FATAL。</p>
 </blockquote>
 <p>定义根记录器的格式为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">log4j.rootLogger = [ level ], appendName1, appendName2, …appendNameN</span><br></pre></td></tr></table></figure></p>
 <p>定义非根记录器的格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">log4j.logger.loggerName1 =  level ],appendName1,appendName2,...appendNameN</span><br></pre></td></tr></table></figure></p>
